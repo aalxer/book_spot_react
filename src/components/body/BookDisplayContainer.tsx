@@ -1,12 +1,13 @@
 import DefaultCover from '../../images/default-book-cover.png'
+import CartIcon from '../../images/cart-icon-gradient.png'
 import {Book} from "../../domain/Book";
 
-// To Display:
-// Cover , Title, Author , Isbn , Preis
 const defaultAuthor:string = "unknown";
 const defaultPrice:number = 12.99;
 const defaultCoverUrl:string = DefaultCover;
 
+// To Display:
+// Cover , Title, Author , Isbn , Price
 export default function bookContainer({
                                           title,
                                           isbn,
@@ -24,7 +25,7 @@ export default function bookContainer({
             <p>isbn: {isbn}</p>
             <div className="book-preis-container">
                 <p>{price}$</p>
-                <img alt="shopping-cart-icon"/>
+                <img src={CartIcon} alt="shopping-cart-icon"/>
             </div>
         </div>
     </div>
