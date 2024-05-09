@@ -10,12 +10,14 @@ let bookToDisplay:Book = {
 }
 export default function mainBody() {
     return <div className="main-content-container">
-        <Header></Header>
-
+        <Header/>
         <div className="body-content-container">
-            <BookContainer isbn={221188993300} title={"Test Book"}></BookContainer>
+            <BookContainer isbn={221188993300} title={"Test Book "}/>
+            <BookContainer isbn={221188993300} title={"Test Book "}/>
+            <BookContainer isbn={221188993300} title={"Test Book "}/>
+            <BookContainer isbn={221188993300} title={"Test Book "}/>
+            <BookContainer isbn={221188993300} title={"Test Book "}/>
         </div>
-
-        <Footer></Footer>
+        <Footer/>
     </div>
 }

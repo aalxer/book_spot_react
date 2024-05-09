@@ -1,0 +1,51 @@
+.book-display-content-container {
+    width: 300px;
+    height: fit-content;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.book-cover {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.book-display-info-container {
+    padding: 10px 50px 50px 50px;
+    text-align: left;
+}
+
+.book-display-info-container h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.book-display-info-container p {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.book-preis-container {
+    width: 100%;
+    margin: 20px 0 0 0;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.book-preis-container p {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.book-preis-container img {
+    text-align: right;
+}
+
+.book-preis-container img:hover {
+    cursor: pointer;
+}

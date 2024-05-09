@@ -1,5 +1,6 @@
 import DefaultCover from '../../images/default-book-cover.png'
 import CartIcon from '../../images/cart-icon-gradient.png'
+import './BookDisplayContainer.css'
 import {Book} from "../../domain/Book";
 
 const defaultAuthor:string = "unknown";
@@ -17,7 +18,7 @@ export default function bookContainer({
 }: Book) {
     return <div className="book-display-content-container">
         <div className="book-display-cover-cintainer">
-            <img src={cover} alt="book-cover"/>
+            <img src={cover} alt="book-cover" className="book-cover"/>
         </div>
         <div className="book-display-info-container">
             <h4>{title}</h4>
