@@ -1,6 +1,4 @@
-
 import {getAllBooks, getBook} from "./Api"
-
 
 getAllBooks().then((book) => {
     book.map(b => {

@@ -1,13 +1,13 @@
 export interface Book {
-    id:number;
-    title:String;
-    subtitle:String;
+    id ? :number;
+    title:string;
+    subtitle ? :string;
     isbn:number;
-    abstract:String;
-    author:String;
-    publisher:String;
-    price:number;
-    numPages:115;
-    cover:String;
-    userId:number;
+    abstract ? :string;
+    author ? :string;
+    publisher ? :string;
+    price ? :number;
+    numPages ? :number;
+    cover ? :string;
+    userId ? :number;
 }
