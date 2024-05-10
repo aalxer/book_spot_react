@@ -6,7 +6,7 @@ export interface Book {
     abstract ? :string;
     author ? :string;
     publisher ? :string;
-    price ? :number;
+    price ? :string;
     numPages ? :number;
     cover ? :string;
     userId ? :number;

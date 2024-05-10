@@ -5,6 +5,11 @@
     margin: 20px;
 }
 
+.book-display-cover-cintainer {
+    position: relative;
+    width: 100%;
+}
+
 .book-cover {
     width: 100%;
     height: auto;

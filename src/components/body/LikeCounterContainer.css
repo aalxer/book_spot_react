@@ -1,0 +1,24 @@
+.like-counter-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+}
+
+.like-counter-container img {
+    margin: 0;
+    padding: 0;
+    height: 22px;
+    width: 22px;
+}
+
+.like-counter-container img:hover {
+    cursor: pointer;
+}
+
+.like-counter-container p {
+    margin-left: 2px;
+    font-size: 1.1rem;
+    font-weight: 300;
+}

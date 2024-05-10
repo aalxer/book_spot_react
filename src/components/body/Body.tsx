@@ -37,7 +37,7 @@ export default function MainBody() {
 
     async function getBooks() {
         try {
-            const books = await getBooksPerPage(25);
+            const books = await getBooksPerPage(16);
             setBooksToDisplay(books);
         } catch (error) {
             console.error("Fehler beim Abrufen der Bücher:", error);
@@ -50,11 +50,22 @@ export default function MainBody() {
         ));
     }
 
-    return <div className="main-content-container">
-        <Header/>
-        <div id="body-content-container" className="body-content-container">
-            {displayBooks()}
+    if (booksToDisplay.length != 0 ) {
+        return <div className="main-content-container">
+            <Header/>
+            <div id="body-content-container" className="body-content-container">
+                {displayBooks()}
+            </div>
+            <Footer/>
         </div>
-        <Footer/>
-    </div>
+    } else {
+        return <div className="main-content-container">
+            <Header/>
+            <div id="body-content-container" className="body-content-container">
+                <h3>There are no Books right now !</h3>
+                <h3>try again ..</h3>
+            </div>
+            <Footer/>
+        </div>
+    }
 }
