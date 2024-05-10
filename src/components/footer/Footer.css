@@ -29,6 +29,7 @@
 .content-container-left p {
     padding: 0;
     margin: 0;
+    font-weight: 200;
     line-height: 1.2rem;
     font-size: .9rem;
 }
@@ -41,7 +42,7 @@
 .content-container-right p {
     text-transform: uppercase;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: 0 0 25px 0;
     padding: 0;
 }

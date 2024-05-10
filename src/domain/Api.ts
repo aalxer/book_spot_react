@@ -3,10 +3,29 @@ const url:String = 'http://localhost:4730';
 
 async function getAllBooks():Promise<Array<Book>> {
 
-    let books:Array<Book> = new Array<Book>();
-
     try {
         let response:Response = await fetch(url + '/books')
+        console.log("Request was sent successfully")
+        if(response.ok) {
+            console.log("response was successfully")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            return await response.json()
+        } else {
+            console.log("Response failed")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            throw new Error();
+        }
+    } catch (error) {
+        console.log("Request sending faild")
+        console.log(error)
+        throw new Error()
+    }
+}
+
+async function getBooksPerPage(page:number):Promise<Array<Book>> {
+
+    try {
+        let response:Response = await fetch(url + '/books?_page=' + page)
         console.log("Request was sent successfully")
         if(response.ok) {
             console.log("response was successfully")
@@ -180,4 +199,4 @@ function deleteBook(isbn) {
 
  */
 
-export {getAllBooks, getBook}
+export {getAllBooks, getBooksPerPage, getBook}

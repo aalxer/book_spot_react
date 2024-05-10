@@ -6,6 +6,6 @@ import "./Header.css"
 export default function header() {
    return <header className="main-header-container">
        <Navbar></Navbar>
-       <img src={Logo} alt="logo"/>
+       <img src={Logo} alt="logo" className="logo-header"/>
    </header>
 }
