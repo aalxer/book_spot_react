@@ -7,7 +7,7 @@
 .logo-header {
     width: 18%;
     height: 18%;
-    margin-left: 5.5%;
+    margin-left: 4%;
     padding: 0;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .navbar-container-ul li:last-child {
-    margin-right: 4.5%;
+    margin-right: 4%;
 }
 
 .navbar-container-ul img {
