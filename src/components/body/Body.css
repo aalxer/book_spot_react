@@ -18,10 +18,12 @@
     width: 100%;
     height: fit-content;
     padding: 8% 4%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-auto-rows: auto;
     justify-content: center;
+    align-items: center;
+    gap: 35px;
 }
 
 .body-content-container h3 {
