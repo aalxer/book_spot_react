@@ -62,34 +62,6 @@ async function getBook(isbn:number):Promise<Book> {
         console.log(error)
         throw new Error()
     }
-
-    /*
-    let promise = fetch(url + '/books/' + isbn)
-
-    promise
-        .then( (response) => {
-            console.log("Anfrage wurde erfolgreich gesendet")
-            if(response.ok) {
-
-                console.log("Success !")
-                console.log("Statuscode: " + response.status + " , Statustext: " + response.statusText)
-
-                response.json().then( (book) =>
-                    console.log("Book vom Server: " + book.title)
-                ).catch( (error) => {
-                    console.log("error beim einlesen der Daten")
-                } )
-
-            } else {
-                console.log("Error !")
-                console.log("Statuscode: " + response.status + " , Statustext: " + response.statusText)
-            }
-        })
-        .catch( (error) => {
-            console.log("Fehler beim Senden der Anfrage")
-            console.log("Error Message: " + error.message + " , Error Status: " + error.status)
-        })
-     */
 }
 
 /*

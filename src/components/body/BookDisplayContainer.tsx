@@ -4,9 +4,9 @@ import LikeCounter from './LikeCounterContainer'
 import './BookDisplayContainer.css'
 import {Book} from "../../domain/Book";
 
-const defaultAuthor:string = "unknown";
-const defaultPrice:string = "$12.99";
-const defaultCoverUrl:string = DefaultCover;
+const defaultAuthor: string = "unknown";
+const defaultPrice: string = "$12.99";
+const defaultCoverUrl: string = DefaultCover;
 
 // To Display:
 // Cover , Title, Author , Isbn , Price
@@ -16,7 +16,7 @@ export default function BookContainer({
                                           author = defaultAuthor,
                                           price = defaultPrice,
                                           cover = defaultCoverUrl
-}: Book) {
+                                      }: Book) {
     return <div className="book-display-content-container">
         <div className="book-display-cover-cintainer">
             <LikeCounter></LikeCounter>
