@@ -62,10 +62,8 @@ export default function MainBody() {
         prepareBooksToDisplay()
 
         return booksToDisplay.map((book) =>
-            (
-                <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
-                               price={book.price}/>
-            )
+            <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
+                           price={book.price} />
         );
     }
 
