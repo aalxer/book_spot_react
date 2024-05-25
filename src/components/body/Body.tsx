@@ -10,14 +10,15 @@ import {getBooksPerPage} from "../../domain/Api";
 export default function MainBody() {
 
     /**
-     * Set a States using useState-Hook
+     * Set a States und Effect using React-Hooks
      */
     const [booksToDisplay, setBooksToDisplay] = useState<Book[]>([]);
-    const [currentPage, setPage] = useState(1)
+    const [isLastPage, setIsLastPage] = useState(false);
+    const [currentPage, setPage] = useState(1);
 
     useEffect(() => {
         getBooks();
-    }, []);
+    }, [currentPage]);
 
     /**
      * Request Books from API
@@ -25,33 +26,13 @@ export default function MainBody() {
     async function getBooks() {
         try {
             const books = await getBooksPerPage(currentPage);
-            setBooksToDisplay(books);
+            if (books.length > 1) {
+                setBooksToDisplay(books);
+            } else {
+                setIsLastPage(true);
+            }
         } catch (error) {
             console.error("Fehler beim Abrufen der Bücher:", error);
-        }
-    }
-
-    /**
-     * Create an Element for each Book from the List
-     */
-    function generateBooksContainers() {
-        return booksToDisplay.map((book) =>
-            (
-                <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
-                               price={book.price}/>
-            )
-        );
-    }
-
-    function nextPage() {
-        setPage(currentPage + 1);
-        getBooks();
-    }
-
-    function prevPage() {
-        if (currentPage > 1) {
-            setPage(currentPage - 1);
-            getBooks();
         }
     }
 
@@ -75,5 +56,26 @@ export default function MainBody() {
             </div>
             <Footer/>
         </div>
+    }
+
+    function generateBooksContainers() {
+        return booksToDisplay.map((book) =>
+            (
+                <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
+                               price={book.price}/>
+            )
+        );
+    }
+
+    function nextPage() {
+        if (!isLastPage) {
+            setPage(currentPage + 1);
+        }
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            setPage(currentPage - 1);
+        }
     }
 }
