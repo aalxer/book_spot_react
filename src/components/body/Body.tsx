@@ -59,12 +59,29 @@ export default function MainBody() {
     }
 
     function generateBooksContainers() {
+        prepareBooksToDisplay()
+
         return booksToDisplay.map((book) =>
             (
                 <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
                                price={book.price}/>
             )
         );
+    }
+
+    function prepareBooksToDisplay() {
+
+        for (const book of booksToDisplay) {
+            if (book.price === "$0.00" || book.price?.length === 0) {
+                delete book.price;
+            }
+            if (book.author?.length === 0) {
+                delete book.author;
+            }
+            if (book.cover?.length === 0) {
+                delete book.cover;
+            }
+        }
     }
 
     function nextPage() {

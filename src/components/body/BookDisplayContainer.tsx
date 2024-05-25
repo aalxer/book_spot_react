@@ -5,7 +5,7 @@ import './BookDisplayContainer.css'
 import {Book} from "../../domain/Book";
 
 const defaultAuthor: string = "unknown";
-const defaultPrice: string = "$12.99";
+const defaultPrice: string = "NaN";
 const defaultCoverUrl: string = DefaultCover;
 
 // To Display:
