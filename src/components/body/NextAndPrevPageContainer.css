@@ -1,0 +1,26 @@
+.nextAndPrevContentCotaniner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8%;
+}
+
+.nextAndPrevContentCotaniner p {
+    width: 70px;
+    text-align: center;
+}
+
+.nextAndPrevContentCotaniner img:hover {
+    cursor: pointer;
+}
+
+.activePageNumber {
+    color: #dc00ff;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.inactivePageNumber {
+    font-size: 1.6rem;
+    font-weight: 200;
+}

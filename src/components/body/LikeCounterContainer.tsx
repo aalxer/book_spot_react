@@ -6,7 +6,6 @@ export default function LikeCounter() {
 
     const [counter, setCounter] = useState(0);
 
-
     const increment = function () {
         // setzt den neuen Counter und die Komponente wird automatisch neu gerendert
         setCounter(counter + 1)

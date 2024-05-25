@@ -2,8 +2,8 @@
     display: flex;
     align-items: center;
     position: absolute;
-    top: 10px;
-    left: 5px;
+    top: 7px;
+    left: 7px;
 }
 
 .like-counter-container img {
