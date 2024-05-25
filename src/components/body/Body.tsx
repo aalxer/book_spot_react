@@ -9,7 +9,7 @@ import {getBooksPerPage} from "../../domain/Api";
 export default function MainBody() {
 
     /**
-     * Request Books from API
+     * Set a State using useState-Hook
      */
     const [booksToDisplay, setBooksToDisplay] = useState<Book[]>([]);
 
@@ -17,6 +17,9 @@ export default function MainBody() {
         getBooks();
     }, []);
 
+    /**
+     * Request Books from API
+     */
     async function getBooks() {
         try {
             const books = await getBooksPerPage(16);
