@@ -8,6 +8,7 @@
 .nextAndPrevContentCotaniner p {
     width: 70px;
     text-align: center;
+    font-size: 1.4rem;
 }
 
 .nextAndPrevContentCotaniner img:hover {
@@ -16,11 +17,9 @@
 
 .activePageNumber {
     color: #dc00ff;
-    font-size: 1.6rem;
     font-weight: 400;
 }
 
 .inactivePageNumber {
-    font-size: 1.6rem;
     font-weight: 200;
 }

@@ -13,6 +13,6 @@ export default function LikeCounter() {
 
     return <div className="like-counter-container">
         <img onClick={increment} src={LikeIcon} alt="like-icon"/>
-        <p>{counter}</p>
+        <p>{counter === 0 ? "" : counter}</p>
     </div>
 }
