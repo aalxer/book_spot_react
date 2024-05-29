@@ -13,8 +13,8 @@ export default function MainBody() {
      * Set a States und Effect using React-Hooks
      */
     const [booksToDisplay, setBooksToDisplay] = useState<Book[]>([]);
-    const [isLastPage, setIsLastPage] = useState(false);
     const [currentPage, setPage] = useState(1);
+    const [isLastPage, setIsLastPage] = useState(false);
 
     useEffect(() => {
         getBooks();
@@ -28,6 +28,7 @@ export default function MainBody() {
             const books = await getBooksPerPage(currentPage);
             if (books.length > 1) {
                 setBooksToDisplay(books);
+                setIsLastPage(false);
             } else {
                 setIsLastPage(true);
             }
@@ -45,7 +46,7 @@ export default function MainBody() {
             <div id="body-content-container" className="body-content-container">
                 {generateBooksContainers()}
             </div>
-            <NextPrevContainer currentPage={currentPage} nextFunction={nextPage} prevFunction={prevPage}/>
+            <NextPrevContainer currentPage={currentPage} isLastPage={isLastPage} nextFunction={nextPage} prevFunction={prevPage}/>
             <Footer/>
         </div>
     } else {

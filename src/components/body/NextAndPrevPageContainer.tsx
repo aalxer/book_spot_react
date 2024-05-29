@@ -2,23 +2,60 @@ import NextIcon from '../../images/next-icon-thin.png'
 import PrevIcon from '../../images/prev-icon-thin.png'
 import './NextAndPrevPageContainer.css'
 
-interface nextAndPrevFunctions {
+interface nextAndPrevContext {
     currentPage: number;
+    isLastPage: boolean;
+    numberOfPageToDisplay?: number;
 
     nextFunction(): void;
 
     prevFunction(): void;
 }
 
-export default function NextAndPrevPageContainer({currentPage, nextFunction, prevFunction}: nextAndPrevFunctions) {
+interface numberOfPageItem {
+    numberOfPage: number;
+    className: string;
+}
+
+export default function NextAndPrevPageContainer({
+                                                     currentPage,
+                                                     nextFunction,
+                                                     prevFunction,
+                                                     isLastPage
+                                                 }: nextAndPrevContext) {
     return <div className="nextAndPrevContentCotaniner">
         <img onClick={prevFunction} src={PrevIcon} alt="previous-icon"/>
-        <p className="inactivePageNumber">{currentPage - 1}</p>
-        <p className="activePageNumber">{currentPage}</p>
-        <p className="inactivePageNumber">{currentPage + 1}</p>
-        <p className="inactivePageNumber">{currentPage + 2}</p>
-        <p className="inactivePageNumber">{currentPage + 3}</p>
-        <p className="inactivePageNumber">{currentPage + 4}</p>
+        {generateNumberOfPagesToDisplay().map((item) => {
+            return <p className={item.className}>{item.numberOfPage}</p>
+        })}
         <img onClick={nextFunction} src={NextIcon} alt="next-icon"/>
     </div>
+
+    function generateNumberOfPagesToDisplay(): numberOfPageItem[] {
+
+        return isLastPage
+            ? [{numberOfPage: currentPage, className: "activePageNumber"}]
+            : Array.from({length: 5}, (_, i) => ({
+                numberOfPage: currentPage + i,
+                className: (currentPage + i) === currentPage ? "activePageNumber" : "inactivePageNumber"
+            }));
+        /*
+
+        if (isLastPage) {
+            currentNumbersOfPages.push({
+                numberOfPage: currentPage,
+                className: "activePageNumber"
+            })
+        } else {
+            for (let i: number = currentPage; i < currentPage + 5; i++) {
+                currentNumbersOfPages.push({
+                    numberOfPage: i,
+                    className: i === currentPage ? "activePageNumber" : "inactivePageNumber"
+                })
+            }
+        }
+        return currentNumbersOfPages;
+
+         */
+    }
 }
