@@ -28,34 +28,17 @@ export default function NextAndPrevPageContainer({
         {generateNumberOfPagesToDisplay().map((item) => {
             return <p className={item.className}>{item.numberOfPage}</p>
         })}
-        <img onClick={nextFunction} src={NextIcon} alt="next-icon"/>
+        {isLastPage ? "" : <img onClick={nextFunction} src={NextIcon} alt="next-icon"/>}
     </div>
 
     function generateNumberOfPagesToDisplay(): numberOfPageItem[] {
 
-        return isLastPage
-            ? [{numberOfPage: currentPage, className: "activePageNumber"}]
-            : Array.from({length: 5}, (_, i) => ({
-                numberOfPage: currentPage + i,
-                className: (currentPage + i) === currentPage ? "activePageNumber" : "inactivePageNumber"
-            }));
-        /*
-
-        if (isLastPage) {
-            currentNumbersOfPages.push({
-                numberOfPage: currentPage,
-                className: "activePageNumber"
-            })
-        } else {
-            for (let i: number = currentPage; i < currentPage + 5; i++) {
-                currentNumbersOfPages.push({
-                    numberOfPage: i,
-                    className: i === currentPage ? "activePageNumber" : "inactivePageNumber"
-                })
-            }
-        }
-        return currentNumbersOfPages;
-
-         */
+        return isLastPage ? [{
+            numberOfPage: currentPage - 1,
+            className: "activePageNumber"
+        }] : Array.from({length: 5}, (_, i) => ({
+            numberOfPage: currentPage + i,
+            className: (currentPage + i) === currentPage ? "activePageNumber" : "inactivePageNumber"
+        }));
     }
 }
