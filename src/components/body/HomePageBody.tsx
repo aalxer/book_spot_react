@@ -1,8 +1,6 @@
 import './HomePageBody.css'
 import React from 'react';
-import Header from '../header/Header'
-import Footer from '../footer/Footer'
-import BookContainer from './BookDisplayContainer'
+import BooksList from './BooksListContainer'
 import {useBooks} from "../../domain/hooks";
 
 export default function MainBody() {
@@ -14,7 +12,7 @@ export default function MainBody() {
             prepareBooksToDisplay();
 
             return books.map((book) =>
-                <BookContainer key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
+                <BooksList key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
                                price={book.price}/>)
         } else {
             return <p className={"stateText"}>{state}</p>
@@ -36,7 +34,7 @@ export default function MainBody() {
         }
     }
 
-    return         <div id="homepage-body-content-container" className="homepage-body-content-container">
+    return <div id="homepage-body-content-container" className="homepage-body-content-container">
         {generateBooksContainers()}
     </div>
 }

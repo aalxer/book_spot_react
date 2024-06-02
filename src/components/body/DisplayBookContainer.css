@@ -1,0 +1,141 @@
+.content-container {
+    margin: 8% 4%;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    padding: 50px 0;
+}
+
+.book-head-container {
+    display: flex;
+}
+
+.book-head-middle-container {
+    padding: 50px 100px 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title-container p{
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+.title-container h1 {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.title-container h3 {
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.buy-container h1 {
+    display: inline;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+.buy-container p {
+    display: inline;
+    font-weight: 200;
+    font-size: .9rem;
+}
+
+.buy-container button {
+    margin-top: 8px;
+    padding: 10px 60px;
+    background-image: linear-gradient(to right, #8000ff, #dc00ff);
+    border: none;
+    color: #F8FCFC;
+    font-size: 1.4rem;
+    font-weight: 300;
+    display: flex;
+    vertical-align: middle;
+}
+
+.buy-container button:hover {
+    cursor: pointer;
+}
+
+.save-share-container a {
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #8a8a8a;
+    margin-right: 30px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    transition: ease all .3s;
+}
+.save-share-container a:hover {
+    color: #CD00FF;
+}
+
+.book-head-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.delivery-info-container {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.delivery-info-container img {
+    margin-right: 10px;
+}
+
+.payment-info-container {
+    margin: 10px 0;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.payment-info-container ul {
+    display: inline-flex;
+    list-style: none;
+}
+
+.payment-info-container ul li {
+    margin-right: 10px;
+}
+
+.info-links-container a {
+    display: block;
+    font-weight: 300;
+    font-size: .9rem;
+    text-decoration: none;
+    color: #8a8a8a;
+    transition: ease all .3s;
+}
+
+.info-links-container a:hover {
+    color: #CD00FF;
+}
+
+.book-des-container, .book-details-container {
+    padding: 50px 50px;
+}
+
+.book-des-container h4, .book-details-container h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.book-des-container p, .book-details-container p {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 8px;
+}
