@@ -13,12 +13,12 @@ async function getAllBooks():Promise<Array<Book>> {
         } else {
             console.log("Response failed")
             console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
-            throw new Error();
+            throw new Error(`${response.status} , ${response.statusText}`);
         }
     } catch (error) {
         console.log("Request sending faild")
         console.log(error)
-        throw new Error()
+        throw new Error("Request sending faild")
     }
 }
 

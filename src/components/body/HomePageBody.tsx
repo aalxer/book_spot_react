@@ -1,4 +1,4 @@
-import './Body.css'
+import './HomePageBody.css'
 import React from 'react';
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
@@ -36,11 +36,7 @@ export default function MainBody() {
         }
     }
 
-    return <div className="main-content-container">
-        <Header/>
-        <div id="body-content-container" className="body-content-container">
-            {generateBooksContainers()}
-        </div>
-        <Footer/>
+    return         <div id="homepage-body-content-container" className="homepage-body-content-container">
+        {generateBooksContainers()}
     </div>
 }
