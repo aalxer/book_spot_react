@@ -8,6 +8,8 @@ import VisaIcon from "../../images/visa-icon-gray-mini.png";
 import SepaIcon from "../../images/sepa-icon-gray-mini.png";
 import MasterCardIcon from "../../images/master-icon-gray-mini.png";
 import ApplepayIcon from "../../images/applepay-icon-gray-mini.png";
+import SecuredIcon from "../../images/secrued-icon-gray.png"
+import MoneyBackIcon from "../../images/money-back-icon-gray.png"
 import './DisplayBookContainer.css'
 
 const book: Book = {
@@ -48,8 +50,16 @@ export default function DisplayBookContainer() {
                     <img src={DeliveryIcon} alt="delivery-icon"/>
                     <p>delivery within 24 hours</p>
                 </div>
+                <div className="delivery-info-container">
+                    <img src={MoneyBackIcon} alt="delivery-icon"/>
+                    <p>money refund guaranteed</p>
+                </div>
+                <div className="delivery-info-container">
+                    <img src={SecuredIcon} alt="delivery-icon"/>
+                    <p>secured payment</p>
+                </div>
                 <div className="payment-info-container">
-                    <p>we accept</p>
+                    <p>We accept</p>
                     <ul>
                         <li><img src={VisaIcon} alt="visacard-logo"/></li>
                         <li><img src={SepaIcon} alt="sepa-logo"/></li>
@@ -58,8 +68,7 @@ export default function DisplayBookContainer() {
                     </ul>
                 </div>
                 <div className="info-links-container">
-                    <a href="">Our Refund Policy</a>
-                    <a href="">Privacy Policy</a>
+                    <a href="">Our privacy policy</a>
                     <a href="">Do you have any question ?</a>
                 </div>
             </div>

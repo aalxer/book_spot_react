@@ -9,14 +9,18 @@ export const useBooks = () => {
     // bis jetzt hat keinen nützlichen Effekt, weil auf die Books wird erst zugegriffen, wenn state "success" ist
     const [books, setBooks] = useState<Book[]>([]);
     const [state, setState] = useState<state>("initial");
-    const refresh = () => getBooks();
+    const [lastRefresh, setLastRefresh] = useState(Date.now());
+
+    const refresh = () => {
+        setLastRefresh(Date.now());
+        console.log("incrementLastRefresh: " + lastRefresh);
+    };
+
     let error: Error = new Error();
 
-    // bis jetzt hat keinen nützlichen Effekt, weil die Books werden nur beim ersten Rendern abgefragt, es gibt
-    // keine weiteren Interaktionen in der Seite.
     useEffect(() => {
         getBooks();
-    }, []);
+    }, [lastRefresh]);
 
     async function getBooks() {
         setState("loading ..");
