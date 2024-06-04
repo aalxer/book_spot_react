@@ -7,6 +7,7 @@ export default function MainBody() {
 
     const {books, state, error, refresh} = useBooks();
 
+    // useEffect in default: sie wird nur beim ersten rendern aufgerufen
     useEffect(() => {
 
         const intervalId = setInterval(refresh, 60000);
