@@ -1,6 +1,6 @@
 import './HomePageBody.css'
 import React, {useEffect} from 'react';
-import BooksList from './BooksListContainer'
+import BooksContainer from './BookContainer'
 import {useBooks} from "../../domain/hooks";
 
 export default function MainBody() {
@@ -22,9 +22,18 @@ export default function MainBody() {
             prepareBooksToDisplay();
 
             return books.map((book) =>
-                <BooksList key={book.id} cover={book.cover} title={book.title} author={book.author} isbn={book.isbn}
-                           price={book.price}/>)
+                <BooksContainer key={book.id} cover={book.cover} title={book.title} author={book.author}
+                                isbn={book.isbn}
+                                price={book.price}/>)
+
+        } else if(state === "loading") {
+
+            return <div>
+                <div className="loader"></div>
+                <p className={"stateText"}>{state}</p>
+            </div>
         } else {
+
             return <p className={"stateText"}>{state}</p>
         }
     }

@@ -17,7 +17,7 @@ export default function BookContainer({
                                           price = defaultPrice,
                                           cover = defaultCoverUrl
                                       }: Book) {
-    
+
     return <div className="book-display-content-container">
         <div className="book-display-cover-cintainer">
             <LikeCounter></LikeCounter>

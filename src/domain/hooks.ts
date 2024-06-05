@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Book} from "./Book";
 import {getAllBooks} from "./Api";
 
-type state = "initial" | "loading .." | "success" | "error";
+type state = "initial" | "loading" | "success" | "error";
 
 export const useBooks = () => {
 
@@ -23,7 +23,7 @@ export const useBooks = () => {
     }, [lastRefresh]);
 
     async function getBooks() {
-        setState("loading ..");
+        setState("loading");
         getAllBooks().then((response) => {
             setState("success");
             setBooks(response);
