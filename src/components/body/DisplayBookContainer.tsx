@@ -36,27 +36,15 @@ export default function DisplayBookContainer() {
                     <h1>{book.title}</h1>
                     <h3>{book.subtitle}</h3>
                 </div>
-                <div className="buy-container">
-                    <h1>{book.price}</h1><p> inkl. gesetzt. MwSt.</p>
-                    <button><img src={CartIcon} alt="cart-icon"/><span>Add To Cart</span></button>
-                </div>
                 <div className="save-share-container">
                     <a href=""><img src={SaveIcon} alt="save-icon"/>save</a>
                     <a href=""><img src={ShareIcon} alt="share-icon"/>share</a>
                 </div>
             </div>
             <div className="book-head-right-container">
-                <div className="delivery-info-container">
-                    <img src={DeliveryIcon} alt="delivery-icon"/>
-                    <p>delivery within 24 hours</p>
-                </div>
-                <div className="delivery-info-container">
-                    <img src={MoneyBackIcon} alt="delivery-icon"/>
-                    <p>money refund guaranteed</p>
-                </div>
-                <div className="delivery-info-container">
-                    <img src={SecuredIcon} alt="delivery-icon"/>
-                    <p>secured payment</p>
+                <div className="buy-container">
+                    <h1>{book.price}</h1><p> inkl. gesetzt. MwSt.</p>
+                    <button><img src={CartIcon} alt="cart-icon"/><span>Add To Cart</span></button>
                 </div>
                 <div className="payment-info-container">
                     <p>We accept</p>

@@ -9,6 +9,12 @@ export const routes = createBrowserRouter([
         path: "/",
         element: <HomePageBody/>
     },
-    {path: "/book", element: <DisplayBookContainer/>},
-    {path: "/error", element: <ErrorScreen/>}
+    {
+        path: "/book",
+        element: <DisplayBookContainer/>
+    },
+    {
+        path: "/error",
+        element: <ErrorScreen/>
+    }
 ]);

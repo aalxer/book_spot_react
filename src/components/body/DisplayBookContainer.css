@@ -10,7 +10,7 @@
 }
 
 .book-head-middle-container {
-    padding: 40px 200px 40px 0;
+    padding: 40px 150px 40px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,6 +29,39 @@
 .title-container h3 {
     font-weight: 500;
     font-size: 1.1rem;
+}
+
+.save-share-container {
+    border-top: #d0d0d0 solid 1px;
+    padding-top: 5px;
+}
+
+.save-share-container a {
+    font-weight: 300;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #8a8a8a;
+    margin-right: 30px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    transition: ease all .3s;
+}
+.save-share-container a:hover {
+    color: #CD00FF;
+}
+
+.book-head-right-container {
+    padding: 40px 100px 40px 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.buy-container {
+    justify-self: center;
+    margin-bottom: 15px;
 }
 
 .buy-container h1 {
@@ -60,32 +93,6 @@
     background: #db00ff;
 }
 
-.save-share-container {
-    border-top: #d0d0d0 solid 1px;
-    padding-top: 5px;
-}
-
-.save-share-container a {
-    font-weight: 300;
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: #8a8a8a;
-    margin-right: 30px;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    transition: ease all .3s;
-}
-.save-share-container a:hover {
-    color: #CD00FF;
-}
-
-.book-head-right-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 .delivery-info-container {
     display: inline-flex;
     align-items: center;
@@ -99,7 +106,7 @@
 }
 
 .payment-info-container {
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 1rem;
     font-weight: 300;
 }
