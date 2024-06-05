@@ -1,15 +1,11 @@
 import {Book} from "../../domain/Book";
-import DefaultCover from '../../images/default-book-cover.png'
 import CartIcon from '../../images/cart-icon-gray-30px.png'
 import SaveIcon from '../../images/save-icon-outlined-pink.png'
 import ShareIcon from '../../images/share-icon-outlined-pink.png'
-import DeliveryIcon from '../../images/delivery-time-icon-gry-outlined.png'
 import VisaIcon from "../../images/visa-icon-gray-mini.png";
 import SepaIcon from "../../images/sepa-icon-gray-mini.png";
 import MasterCardIcon from "../../images/master-icon-gray-mini.png";
 import ApplepayIcon from "../../images/applepay-icon-gray-mini.png";
-import SecuredIcon from "../../images/secrued-icon-gray.png"
-import MoneyBackIcon from "../../images/money-back-icon-gray.png"
 import './DisplayBookContainer.css'
 
 const book: Book = {
