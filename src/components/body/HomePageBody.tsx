@@ -2,6 +2,8 @@ import './HomePageBody.css'
 import React, {useEffect} from 'react';
 import BooksContainer from './BookContainer'
 import {useBooks} from "../../domain/hooks";
+import RefreshIcon from '../../images/refresh-icon-pink.png'
+import FilterIcon from '../../images/filter-icon-pink.png'
 
 export default function MainBody() {
 
@@ -28,13 +30,15 @@ export default function MainBody() {
 
         } else if(state === "loading") {
 
-            return <div>
+            return <div className="stateContainer">
                 <div className="loader"></div>
                 <p className={"stateText"}>{state}</p>
             </div>
         } else {
 
-            return <p className={"stateText"}>{state}</p>
+            return <div className="stateContainer">
+                <p className={"stateText"}>{state}</p>
+            </div>
         }
     }
 
@@ -53,7 +57,17 @@ export default function MainBody() {
         }
     }
 
+    function displayRefreshAndFilterIcons() {
+        if(state === "success") {
+            return <div className="refreshAndFilterContainer">
+                <img onClick={refresh} src={RefreshIcon} alt="refresh-icon"/>
+                <img src={FilterIcon} alt="filter-icon"/>
+            </div>
+        }
+    }
+
     return <div id="homepage-body-content-container" className="homepage-body-content-container">
+        {displayRefreshAndFilterIcons()}
         {generateBooksContainers()}
     </div>
 }

@@ -4,11 +4,13 @@ import React from "react";
 import HomePageBody from "./components/body/HomePageBody";
 import ErrorScreen from "./components/body/ErrorScreen";
 import AddNewBook from "./components/body/AddNewBook";
+import Impressum from "./components/body/Impressum";
 
 export const routes = createBrowserRouter([
     {
         path: "/",
-        element: <HomePageBody/>
+        element: <HomePageBody/>,
+        errorElement: <ErrorScreen/>
     },
     {
         path: "/book",
@@ -21,5 +23,9 @@ export const routes = createBrowserRouter([
     {
         path: "/add",
         element: <AddNewBook/>
+    },
+    {
+        path: "/impressum",
+        element: <Impressum/>
     }
 ]);

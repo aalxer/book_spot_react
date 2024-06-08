@@ -1,7 +1,7 @@
 import DefaultCover from '../../images/default-book-cover.png'
 import CartIcon from '../../images/cart-icon-gradient.png'
 import LikeCounter from './LikeCounterContainer'
-import './BooksListContainer.css'
+import './BookContainer.css'
 import {Book} from "../../domain/Book";
 
 const defaultAuthor: string = "unknown";

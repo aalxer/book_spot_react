@@ -1,0 +1,24 @@
+.impressumContentContainer {
+    padding: 8% 4%;
+}
+
+.impressumContentContainer h1 {
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.sectionContanier {
+    margin: 40px 0;
+}
+
+.sectionContanier h2 {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+.sectionContanier p {
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: 1rem;
+}

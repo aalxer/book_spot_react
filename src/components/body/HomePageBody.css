@@ -11,6 +11,22 @@
     gap: 35px;
 }
 
+.refreshAndFilterContainer {
+    grid-column: span 5;
+}
+
+.refreshAndFilterContainer img {
+    margin-right: 10px;
+}
+
+.refreshAndFilterContainer img:hover {
+    cursor: pointer;
+}
+
+.stateContainer {
+    grid-column: span 5;
+}
+
 .homepage-body-content-container h3 {
     font-weight: 300;
     font-size: 1.3rem;
