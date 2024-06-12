@@ -1,0 +1,85 @@
+.updateBookContentContainer {
+    box-sizing: border-box;
+    margin: 8% 4%;
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.2);
+    height: fit-content;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.updateBookContentContainer p {
+    grid-column: span 2;
+    font-size: 2rem;
+    font-weight: 200;
+    color: #CD00FF;
+    margin-bottom: 25px;
+}
+
+.updateBookContentContainer input,textarea {
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: #b6b6b6 solid 1px;
+    color: #9a9a9a;
+    font-weight: 600;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.updateBookContentContainer label {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.updateBookContentContainer input:hover, textarea:hover {
+    color: #CD00FF;
+    border-bottom: #CD00FF solid 1px;
+}
+
+.updateBookContentContainer input:focus, textarea:focus {
+    border: none;
+    border-bottom: #CD00FF solid 1px;
+    outline: none;
+}
+
+.twoColumns {
+    grid-column: span 2;
+}
+
+.abstractText {
+    height: 150px;
+}
+
+.updateBookContentContainer button {
+    margin: 45px 0;
+    padding: 30px 0;
+    font-size: 2.1rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    transition: ease all .5s;
+}
+
+.saveBtn {
+    border: none;
+    color: #FEFEFE;
+    background-image: linear-gradient(to right, #8000ff, #dc00ff);
+}
+
+.saveBtn:hover {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #dc00ff, #8000ff);
+}
+
+.cancelBtn {
+    border: #dc00ff solid 1px;
+    color: #dc00ff;
+    background: none;
+}
+
+.cancelBtn:hover {
+    cursor: pointer;
+    border: #9a9a9a solid 1px;
+    color: #9a9a9a;
+    background: none;
+}
