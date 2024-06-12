@@ -1,10 +1,10 @@
-import {createBrowserRouter} from 'react-router-dom';
-import BookDetailsContainer from "./components/body/BookDetailsContainer";
+import {createBrowserRouter, redirect} from 'react-router-dom';
+import BookDetails from "./screens/BookDetails";
 import React from "react";
-import HomePageBody from "./components/body/HomePageBody";
-import ErrorScreen from "./components/body/ErrorScreen";
+import HomePageBody from "./screens/Homepage";
+import ErrorScreen from "./screens/ErrorScreen";
 import AddNewBook from "./components/dashboard/AddNewBook";
-import Impressum from "./components/body/Impressum";
+import Impressum from "./screens/Impressum";
 import DashboardHome from "./components/dashboard/DashboardHome";
 import UpdateBookContainer from "./components/dashboard/UpdateBookContainer";
 import App from "./components/App";
@@ -16,12 +16,16 @@ export const router = createBrowserRouter([
         errorElement: <ErrorScreen/>,
         children: [
             {
+                path: "",
+                loader: () => redirect("home")
+            },
+            {
                 path: "/home",
                 element: <HomePageBody/>
             },
             {
                 path: "/home/:bookId",
-                element: <BookDetailsContainer/>
+                element: <BookDetails/>,
             },
             {
                 path: "/impressum",
@@ -43,6 +47,6 @@ export const router = createBrowserRouter([
     },
     {
         path: "/book",
-        element: <BookDetailsContainer/>
+        element: <BookDetails/>
     }
 ]);
