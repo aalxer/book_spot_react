@@ -6,7 +6,8 @@ import VisaIcon from "../../images/visa-icon-gray-mini.png";
 import SepaIcon from "../../images/sepa-icon-gray-mini.png";
 import MasterCardIcon from "../../images/master-icon-gray-mini.png";
 import ApplepayIcon from "../../images/applepay-icon-gray-mini.png";
-import './DisplayBookContainer.css'
+import './BookDetailsContainer.css'
+import {useParams} from "react-router-dom";
 
 const book: Book = {
     abstract: "Protect your Web 2.0 architecture against the latest wave of cybercrime using expert tactics from Internet security professionals. Hacking Exposed Web 2.0 shows how hackers perform reconnaissance, choose their entry point, and attack Web 2.0 - based services, and reveals detailed countermeasures and...",
@@ -20,7 +21,10 @@ const book: Book = {
     title: "Hacking Exposed Web 2.0"
 }
 
-export default function DisplayBookContainer() {
+export default function BookDetailsContainer() {
+
+    const {bookId} = useParams<{bookId: string}>()
+
     return <div className="content-container">
         <div className="book-head-container">
             <div className="book-head-left-container">

@@ -1,4 +1,8 @@
-import './addNewBook.css'
+import './AddNewBook.css'
+import {Book} from "../../domain/Book";
+
+type using = "add" | "update";
+
 export default function AddNewBook() {
     return <div className="addBookMainContainer">
         <div className="addBookContentContainer">
