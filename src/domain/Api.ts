@@ -64,8 +64,7 @@ async function getBook(isbn:number):Promise<Book> {
     }
 }
 
-/*
-function addBook(book) {
+function addBook(book:Book) {
 
     const requestOptions = {
         method: 'POST',
@@ -99,7 +98,7 @@ function addBook(book) {
             console.log("Error Message: " + error.message + " , Error Status: " + error.status)
         })
 }
-
+/*
 function updateBook(isbn, newBookDetails) {
 
     const requestOptions = {
@@ -134,14 +133,34 @@ function updateBook(isbn, newBookDetails) {
             console.log("Error Message: " + error.message + " , Error Status: " + error.status)
         })
 }
+ */
 
-function deleteBook(isbn) {
+async function deleteBookByIsbn(isbn:number) {
 
     const requestOptions = {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
     }
 
+    try {
+        let response = await fetch(url + '/books/' + isbn, requestOptions);
+        console.log("Request was sent successfully")
+        if(response.ok) {
+            console.log("response was successfully")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            return await response.json()
+        } else {
+            console.log("Response failed")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            throw new Error(`${response.status} , ${response.statusText}`);
+        }
+    } catch (error) {
+        console.log("Request sending faild")
+        console.log(error)
+        throw new Error("Request sending faild")
+    }
+
+    /*
     let promise = fetch(url + '/books/' + isbn, requestOptions)
 
     promise
@@ -167,8 +186,9 @@ function deleteBook(isbn) {
             console.log("Fehler beim Senden der Anfrage")
             console.log("Error Message: " + error.message + " , Error Status: " + error.status)
         })
+
+     */
 }
 
- */
 
-export {getAllBooks, getBooksPerPage, getBook}
+export {getAllBooks, getBooksPerPage, deleteBookByIsbn, getBook}

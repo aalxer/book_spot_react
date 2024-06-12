@@ -40,18 +40,3 @@
     font-weight: 200;
     font-size: 2rem;
 }
-
-.loader {
-    border: 13px solid #f3f3f3;
-    border-top: 13px solid #dc00ff;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    animation: spin 2s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}

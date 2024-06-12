@@ -4,6 +4,7 @@ import BooksContainer from './BookContainer'
 import {useBooks} from "../../domain/hooks";
 import RefreshIcon from '../../images/refresh-icon-pink.png'
 import FilterIcon from '../../images/filter-icon-pink.png'
+import LoadingContainer from "./LoadingContainer";
 
 export default function MainBody() {
 
@@ -24,16 +25,13 @@ export default function MainBody() {
             prepareBooksToDisplay();
 
             return books.map((book) =>
-                <BooksContainer key={book.id} cover={book.cover} title={book.title} author={book.author}
+                <BooksContainer key={book.id} id={book.id} cover={book.cover} title={book.title} author={book.author}
                                 isbn={book.isbn}
                                 price={book.price}/>)
 
         } else if(state === "loading") {
 
-            return <div className="stateContainer">
-                <div className="loader"></div>
-                <p className={"stateText"}>{state}</p>
-            </div>
+            return <LoadingContainer />
         } else {
 
             return <div className="stateContainer">

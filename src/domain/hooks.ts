@@ -22,8 +22,8 @@ export const useBooks = () => {
         getBooks();
     }, [lastRefresh]);
 
-    async function getBooks() {
-        setState("loading");
+    function getBooks() {
+
         getAllBooks().then((response) => {
             setState("success");
             setBooks(response);
@@ -31,6 +31,20 @@ export const useBooks = () => {
             setState("error");
             console.error("Fehler beim Abrufen der Bücher:", error);
         })
+        setState("loading");
+
+        // oder:
+        /*
+        setState("loading");
+        try {
+            let result:Book[] = await getAllBooks();
+            setState("success");
+            setBooks(result);
+        } catch (error) {
+            setState("error");
+            console.error("Fehler beim Abrufen der Bücher:", error);
+        }
+         */
     }
 
     return {books, state, error, refresh}
