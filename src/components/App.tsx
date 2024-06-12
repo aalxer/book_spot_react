@@ -1,7 +1,7 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import React from "react";
-import HomePageBody from "./body/HomePageBody"
+import HomePageBody from "../screens/Homepage"
 import './App.css'
 import {Outlet} from "react-router-dom";
 

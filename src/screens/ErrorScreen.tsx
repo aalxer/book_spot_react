@@ -1,4 +1,4 @@
-import ErrorIcon from '../../images/error-icon-red.png'
+import ErrorIcon from '../images/error-icon-red.png'
 import './ErrorScreen.css'
 import {isRouteErrorResponse, useRouteError} from "react-router-dom";
 

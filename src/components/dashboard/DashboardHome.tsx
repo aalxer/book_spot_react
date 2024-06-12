@@ -1,5 +1,5 @@
 import {Book} from "../../domain/Book";
-import {useBooks} from "../../domain/hooks";
+import {useBooks} from "../../domain/useBooks";
 import './DashboardHome.css'
 import '../App.css'
 import DeleteIcon from '../../images/delete-icon-red.png'

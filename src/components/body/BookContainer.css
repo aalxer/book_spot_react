@@ -23,6 +23,11 @@
     text-align: left;
 }
 
+.book-display-info-container a {
+    text-decoration: none;
+    color: #8a8a8a;
+}
+
 .book-display-info-container h4 {
     font-size: 1.2rem;
     font-weight: 600;

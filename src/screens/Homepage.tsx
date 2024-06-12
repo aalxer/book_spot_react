@@ -1,10 +1,10 @@
-import './HomePageBody.css'
+import './Homepage.css'
 import React, {useEffect} from 'react';
-import BooksContainer from './BookContainer'
-import {useBooks} from "../../domain/hooks";
-import RefreshIcon from '../../images/refresh-icon-pink.png'
-import FilterIcon from '../../images/filter-icon-pink.png'
-import LoadingContainer from "./LoadingContainer";
+import BooksContainer from '../components/body/BookContainer'
+import {useBooks} from "../domain/useBooks";
+import RefreshIcon from '../images/refresh-icon-pink.png'
+import FilterIcon from '../images/filter-icon-pink.png'
+import LoadingContainer from "../components/body/LoadingContainer";
 
 export default function MainBody() {
 
@@ -29,9 +29,9 @@ export default function MainBody() {
                                 isbn={book.isbn}
                                 price={book.price}/>)
 
-        } else if(state === "loading") {
+        } else if (state === "loading") {
 
-            return <LoadingContainer />
+            return <LoadingContainer/>
         } else {
 
             return <div className="stateContainer">
@@ -56,7 +56,7 @@ export default function MainBody() {
     }
 
     function displayRefreshAndFilterIcons() {
-        if(state === "success") {
+        if (state === "success") {
             return <div className="refreshAndFilterContainer">
                 <img onClick={refresh} src={RefreshIcon} alt="refresh-icon"/>
                 <img src={FilterIcon} alt="filter-icon"/>
