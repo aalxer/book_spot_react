@@ -1,6 +1,6 @@
-import NextIcon from '../../images/next-icon-thin.png'
-import PrevIcon from '../../images/prev-icon-thin.png'
-import './NextAndPrevPageContainer.css'
+import NextIcon from '../../assets/images/next-icon-thin.png'
+import PrevIcon from '../../assets/images/prev-icon-thin.png'
+import '../../styles/NextAndPrevPageContainer.css'
 
 interface nextAndPrevContext {
     currentPage: number;

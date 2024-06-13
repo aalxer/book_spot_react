@@ -1,5 +1,5 @@
-import './AddNewBook.css'
-import {Book} from "../../domain/Book";
+import '../../styles/AddNewBook.css'
+import {Book} from "../../types/Book";
 
 type using = "add" | "update";
 

@@ -1,10 +1,10 @@
-import {Book} from "../../domain/Book";
-import {useBooks} from "../../domain/useBooks";
-import './DashboardHome.css'
-import '../App.css'
-import DeleteIcon from '../../images/delete-icon-red.png'
-import EditIcon from '../../images/edit-icon-yello.png'
-import AddIcon from '../../images/add-icon-gray.png'
+import {Book} from "../../types/Book";
+import {useBooks} from "../../hooks/useBooks";
+import '../../styles/DashboardHome.css'
+import '../../styles/App.css'
+import DeleteIcon from '../../assets/images/delete-icon-red.png'
+import EditIcon from '../../assets/images/edit-icon-yello.png'
+import AddIcon from '../../assets/images/add-icon-gray.png'
 import LoadingContainer from "../body/LoadingContainer";
 import {deleteBookByIsbn} from '../../domain/Api'
 import {Link} from "react-router-dom";

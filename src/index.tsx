@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './components/App.css'
+import './styles/App.css'
 import {RouterProvider} from "react-router-dom";
 import {router} from "./router";
 
@@ -10,5 +10,11 @@ root.render(
     <React.StrictMode>
         <RouterProvider router={router}/>
     </React.StrictMode>
+
+
+
+
+
+
 );
 

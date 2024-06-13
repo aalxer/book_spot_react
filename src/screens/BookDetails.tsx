@@ -1,12 +1,12 @@
-import {Book} from "../domain/Book";
-import CartIcon from '../images/cart-icon-gray-30px.png'
-import SaveIcon from '../images/save-icon-outlined-pink.png'
-import ShareIcon from '../images/share-icon-outlined-pink.png'
-import VisaIcon from "../images/visa-icon-gray-mini.png";
-import SepaIcon from "../images/sepa-icon-gray-mini.png";
-import MasterCardIcon from "../images/master-icon-gray-mini.png";
-import ApplepayIcon from "../images/applepay-icon-gray-mini.png";
-import './BookDetails.css'
+import {Book} from "../types/Book";
+import CartIcon from '../assets/images/cart-icon-gray-30px.png'
+import SaveIcon from '../assets/images/save-icon-outlined-pink.png'
+import ShareIcon from '../assets/images/share-icon-outlined-pink.png'
+import VisaIcon from "../assets/images/visa-icon-gray-mini.png";
+import SepaIcon from "../assets/images/sepa-icon-gray-mini.png";
+import MasterCardIcon from "../assets/images/master-icon-gray-mini.png";
+import ApplepayIcon from "../assets/images/applepay-icon-gray-mini.png";
+import '../styles/BookDetails.css'
 import {useParams} from "react-router-dom";
 
 const book: Book = {

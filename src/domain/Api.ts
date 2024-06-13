@@ -1,4 +1,4 @@
-import {Book} from './Book'
+import {Book} from '../types/Book'
 const url:String = 'http://localhost:4730';
 
 async function getAllBooks():Promise<Array<Book>> {

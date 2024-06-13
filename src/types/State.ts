@@ -1,0 +1,1 @@
+export type state = "initial" | "loading" | "success" | "error";

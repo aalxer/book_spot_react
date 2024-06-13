@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
-import Logo from "../../images/bookspot-logo.png";
-import "./Header.css"
+import Logo from "../../assets/images/bookspot-logo.png";
+import "../../styles/Header.css"
 
 export default function Header() {
     return <header className="main-header-container">

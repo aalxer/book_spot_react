@@ -1,12 +1,12 @@
-import './Footer.css'
-import Logo from '../../images/bookspot-logo-gray.png'
-import Visa from '../../images/visa-icon-gray.png'
-import Sepa from '../../images/sepa-icon-gray.png'
-import Master from '../../images/mastercard-icon-gray.png'
-import Applepay from '../../images/apple-pay-icon-gray.png'
-import Facebook from '../../images/fb-icon-gray.png'
-import Instagram from '../../images/insta-icon-gray.png'
-import X from '../../images/x-icon-gray.png'
+import '../../styles/Footer.css'
+import Logo from '../../assets/images/bookspot-logo-gray.png'
+import Visa from '../../assets/images/visa-icon-gray.png'
+import Sepa from '../../assets/images/sepa-icon-gray.png'
+import Master from '../../assets/images/mastercard-icon-gray.png'
+import Applepay from '../../assets/images/apple-pay-icon-gray.png'
+import Facebook from '../../assets/images/fb-icon-gray.png'
+import Instagram from '../../assets/images/insta-icon-gray.png'
+import X from '../../assets/images/x-icon-gray.png'
 
 export default function Footer() {
 

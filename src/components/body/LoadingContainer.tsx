@@ -1,5 +1,5 @@
 import React from "react";
-import './LoadingContainer.css'
+import '../../styles/LoadingContainer.css'
 
 export default function LoadingContainer() {
     return <div className="LoaderContentContainer">

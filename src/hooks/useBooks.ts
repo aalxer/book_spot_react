@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
-import {Book} from "./Book";
-import {getAllBooks} from "./Api";
-
-type state = "initial" | "loading" | "success" | "error";
+import {Book} from "../types/Book";
+import {getAllBooks} from "../domain/Api";
+import {state} from "../types/State"
 
 export const useBooks = () => {
 

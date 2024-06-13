@@ -1,6 +1,6 @@
-import {Book} from "../../domain/Book";
+import {Book} from "../../types/Book";
 import {getBook} from "../../domain/Api";
-import './UpdateBookContainer.css'
+import '../../styles/UpdateBookContainer.css'
 import {useState} from "react";
 
 export default function UpdateBookContainer() {

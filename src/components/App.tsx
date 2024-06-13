@@ -2,7 +2,7 @@ import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import React from "react";
 import HomePageBody from "../screens/Homepage"
-import './App.css'
+import '../styles/App.css'
 import {Outlet} from "react-router-dom";
 
 export default function App() {

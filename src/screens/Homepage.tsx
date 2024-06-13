@@ -1,9 +1,9 @@
-import './Homepage.css'
+import '../styles/Homepage.css'
 import React, {useEffect} from 'react';
 import BooksContainer from '../components/body/BookContainer'
-import {useBooks} from "../domain/useBooks";
-import RefreshIcon from '../images/refresh-icon-pink.png'
-import FilterIcon from '../images/filter-icon-pink.png'
+import {useBooks} from "../hooks/useBooks";
+import RefreshIcon from '../assets/images/refresh-icon-pink.png'
+import FilterIcon from '../assets/images/filter-icon-pink.png'
 import LoadingContainer from "../components/body/LoadingContainer";
 
 export default function MainBody() {

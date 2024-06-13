@@ -1,8 +1,8 @@
-import DefaultCover from '../../images/default-book-cover.png'
-import CartIcon from '../../images/cart-icon-gradient.png'
+import DefaultCover from '../../assets/images/default-book-cover.png'
+import CartIcon from '../../assets/images/cart-icon-gradient.png'
 import LikeCounter from './LikeCounterContainer'
-import './BookContainer.css'
-import {Book} from "../../domain/Book";
+import '../../styles/BookContainer.css'
+import {Book} from "../../types/Book";
 import {NavLink} from "react-router-dom";
 
 const defaultAuthor: string = "unknown";
