@@ -43,7 +43,7 @@ async function getBooksPerPage(page:number):Promise<Array<Book>> {
     }
 }
 
-async function getBook(isbn:number):Promise<Book> {
+async function getBookPerIsbn(isbn:number):Promise<Book> {
 
     try {
         let response:Response = await fetch(url + '/books/' + isbn)
@@ -55,12 +55,12 @@ async function getBook(isbn:number):Promise<Book> {
         } else {
             console.log("Response failed")
             console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
-            throw new Error()
+            throw Error()
         }
     } catch (error) {
         console.log("Request sending faild")
         console.log(error)
-        throw new Error()
+        throw Error()
     }
 }
 
@@ -191,4 +191,4 @@ async function deleteBookByIsbn(isbn:number) {
 }
 
 
-export {getAllBooks, getBooksPerPage, deleteBookByIsbn, getBook}
+export {getAllBooks, getBooksPerPage, deleteBookByIsbn, getBookPerIsbn}

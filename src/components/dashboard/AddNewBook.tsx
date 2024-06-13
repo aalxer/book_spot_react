@@ -1,7 +1,9 @@
 import '../../styles/AddNewBook.css'
+import BackButton from "../body/BackButton";
 
 export default function AddNewBook() {
     return <div className="addBookMainContainer">
+        <BackButton />
         <div className="addBookContentContainer">
             <p>main Info</p>
             <input type="text" placeholder="Title" required/>

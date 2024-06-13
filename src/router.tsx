@@ -33,20 +33,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <DashboardHome/>,
+                element: <DashboardHome/>
             },
             {
-                path: "add",
+                path: "/dashboard/:bookId",
+                element: <UpdateBookContainer/>
+            },
+            {
+                path: "/add",
                 element: <AddNewBook/>
             }
         ]
-    },
-    {
-        path: "/update",
-        element: <UpdateBookContainer/>
-    },
-    {
-        path: "/book",
-        element: <BookDetails/>
     }
 ]);

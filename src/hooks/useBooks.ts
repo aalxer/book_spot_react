@@ -1,13 +1,12 @@
 import {useEffect, useState} from "react";
 import {Book} from "../types/Book";
 import {getAllBooks} from "../domain/Api";
-import {state} from "../types/State"
+import {State} from "../types/State"
 
 export const useBooks = () => {
 
-    // bis jetzt hat keinen nützlichen Effekt, weil auf die Books wird erst zugegriffen, wenn state "success" ist
     const [books, setBooks] = useState<Book[]>([]);
-    const [state, setState] = useState<state>("initial");
+    const [state, setState] = useState<State>("initial");
     const [lastRefresh, setLastRefresh] = useState(Date.now());
 
     const refresh = () => {

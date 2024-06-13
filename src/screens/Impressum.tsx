@@ -1,8 +1,10 @@
 import '../styles/Impressum.css'
+import BackButton from "../components/body/BackButton";
 
 export default function Impressum() {
 
     return <div className="impressumContentContainer">
+        <BackButton />
         <h1>Impressum (Legal Notice)</h1>
         <div className="sectionContanier">
             <h2>Information in accordance with Section 5 TMG (Telemedia Act):</h2>

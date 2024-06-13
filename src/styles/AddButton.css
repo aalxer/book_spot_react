@@ -1,0 +1,26 @@
+.addBookBtnContentCotainer {
+    width: fit-content;
+}
+
+.addBookLink {
+    text-decoration: none;
+}
+
+.addBookBtn {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: 0;
+    margin-bottom: 20px;
+    background: #7abe14;
+    color: #FEFEFE;
+    font-weight: 300;
+    font-size: 1.4rem;
+    transition: ease all .3s;
+}
+
+.addBookBtn:hover {
+    cursor: pointer;
+    background: #afafaf;
+}

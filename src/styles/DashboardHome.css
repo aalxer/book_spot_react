@@ -14,6 +14,10 @@
     align-items: center;
 }
 
+.dashboardBooksTable a {
+    text-decoration: none;
+}
+
 .dashboardTitleContainer {
     font-weight: 800;
     font-size: 1.1rem;
@@ -23,12 +27,12 @@
     font-weight: 300;
 }
 
-.editBtn, .deleteBtn, .addBookBtn {
+.editBtn, .deleteBtn {
     display: flex;
     align-items: center;
 }
 
-.editBtn:hover, .deleteBtn:hover, .addBookBtn:hover {
+.editBtn:hover, .deleteBtn:hover {
     cursor: pointer;
 }
 
@@ -42,27 +46,6 @@
     font-weight: 400;
     font-size: 1.2rem;
     color: #FA5252;
-}
-
-.addBookBtn {
-    padding: 10px 30px;
-    border-radius: 30px;
-    border: 0;
-    margin-bottom: 20px;
-    background: #7abe14;
-    color: #FEFEFE;
-    font-weight: 300;
-    font-size: 1.4rem;
-    transition: ease all .3s;
-}
-
-.addBookBtn:hover {
-    cursor: pointer;
-    background: #afafaf;
-}
-
-.addBookLink {
-    text-decoration: none;
 }
 
 .bookTitle {

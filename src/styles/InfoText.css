@@ -1,0 +1,13 @@
+.infoTextContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.infoTextContainer p {
+    font-weight: 300;
+    font-size: 1.4rem;
+    margin-left: 5px;
+}

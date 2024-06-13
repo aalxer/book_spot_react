@@ -1,0 +1,19 @@
+.back-btn-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    width: fit-content;
+}
+.back-btn-container:hover {
+    cursor: pointer;
+}
+
+.back-btn-container p {
+    font-weight: 200;
+    font-size: 1.8rem;
+    transition: ease all .3s;
+}
+
+.back-btn-container p:hover {
+    color: #CD00FF;
+}

@@ -4,27 +4,15 @@ import '../../styles/DashboardHome.css'
 import '../../styles/App.css'
 import DeleteIcon from '../../assets/icons/delete-icon-red.png'
 import EditIcon from '../../assets/icons/edit-icon-yello.png'
-import AddIcon from '../../assets/icons/add-icon-gray.png'
 import LoadingContainer from "../body/LoadingContainer";
-import {deleteBookByIsbn} from '../../domain/Api'
-import {Link} from "react-router-dom";
-
-const book: Book = {
-    id: 786453845,
-    abstract: "Protect your Web 2.0 architecture against the latest wave of cybercrime using expert tactics from Internet security professionals. Hacking Exposed Web 2.0 shows how hackers perform reconnaissance, choose their entry point, and attack Web 2.0 - based services, and reveals detailed countermeasures and...",
-    author: "Rich Cannings, Himanshu Dwivedi, Zane Lackey",
-    cover: "http://localhost:4730/covers/9780071494618.png",
-    isbn: 9780071494618,
-    numPages: 258,
-    price: "$12.03",
-    publisher: "McGraw-Hill",
-    subtitle: "Web 2.0 Security Secrets and Solutions",
-    title: "Hacking Exposed Web 2.0"
-}
+import AddButton from "./AddButton"
+import {useDelete} from "../../hooks/dashboardServices";
+import {NavLink} from "react-router-dom";
 
 export default function DashboardHome() {
 
-    const {books, state, error, refresh} = useBooks();
+    const {books, state, refresh} = useBooks();
+    const {deleteState, deleteBook} = useDelete();
 
     function displayItems() {
 
@@ -36,15 +24,6 @@ export default function DashboardHome() {
         } else {
             return <LoadingContainer/>
         }
-    }
-
-    function generateAddBtn() {
-        return <Link className="addBookLink" to={"/add" }>
-            <button className="addBookBtn">
-                <img src={AddIcon} alt="add-icon"/>
-                <p>Add new book</p>
-            </button>
-        </Link>
     }
 
     function generateTableTitle() {
@@ -71,24 +50,18 @@ export default function DashboardHome() {
             <p>{book.publisher}</p>
             <p>{book.price}</p>
             <p>{book.numPages}</p>
-            <div className="editBtn"><img src={EditIcon} alt="edit-icon"/><p>Edit</p></div>
+            <NavLink to={`${book.id}`}>
+                <div className="editBtn"><img src={EditIcon} alt="edit-icon"/><p>Edit</p></div>
+            </NavLink>
             <div className="deleteBtn" onClick={() => {
                 deleteBook(book.isbn)
+                deleteState === "error" ? alert("something went wrong") : refresh()
             }}><img src={DeleteIcon} alt="delete-icon"/><p>Drop</p></div>
         </div>
     }
 
-    function deleteBook(isbn: number) {
-        deleteBookByIsbn(isbn).then(() => {
-            displayItems();
-            // TODO Show message
-        }).catch((error) => {
-            // TODO Show message
-        })
-    }
-
     return (<div className="dashboardContentContainer">
-        {generateAddBtn()}
+        <AddButton/>
         {generateTableTitle()}
         {displayItems()}
     </div>)
