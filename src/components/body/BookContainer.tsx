@@ -1,5 +1,5 @@
 import DefaultCover from '../../assets/images/default-book-cover.png'
-import CartIcon from '../../assets/images/cart-icon-gradient.png'
+import CartIcon from '../../assets/icons/cart-icon-gradient.png'
 import LikeCounter from './LikeCounterContainer'
 import '../../styles/BookContainer.css'
 import {Book} from "../../types/Book";

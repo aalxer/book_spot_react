@@ -1,7 +1,4 @@
 import '../../styles/AddNewBook.css'
-import {Book} from "../../types/Book";
-
-type using = "add" | "update";
 
 export default function AddNewBook() {
     return <div className="addBookMainContainer">

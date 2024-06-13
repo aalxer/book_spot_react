@@ -1,5 +1,5 @@
-import NextIcon from '../../assets/images/next-icon-thin.png'
-import PrevIcon from '../../assets/images/prev-icon-thin.png'
+import NextIcon from '../../assets/icons/next-icon-thin.png'
+import PrevIcon from '../../assets/icons/prev-icon-thin.png'
 import '../../styles/NextAndPrevPageContainer.css'
 
 interface nextAndPrevContext {

@@ -1,6 +1,6 @@
-import LikeIcon from '../../assets/images/like-icon-gray.png'
-import CartIcon from '../../assets/images/cart-icon-gray.png'
-import SettingIcon from '../../assets/images/setting-icon-gray.png'
+import LikeIcon from '../../assets/icons/like-icon-gray.png'
+import CartIcon from '../../assets/icons/cart-icon-gray.png'
+import SettingIcon from '../../assets/icons/setting-icon-gray.png'
 import {Link} from "react-router-dom";
 
 export default function Navbar() {

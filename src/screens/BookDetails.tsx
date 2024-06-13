@@ -1,11 +1,11 @@
 import {Book} from "../types/Book";
-import CartIcon from '../assets/images/cart-icon-gray-30px.png'
-import SaveIcon from '../assets/images/save-icon-outlined-pink.png'
-import ShareIcon from '../assets/images/share-icon-outlined-pink.png'
-import VisaIcon from "../assets/images/visa-icon-gray-mini.png";
-import SepaIcon from "../assets/images/sepa-icon-gray-mini.png";
-import MasterCardIcon from "../assets/images/master-icon-gray-mini.png";
-import ApplepayIcon from "../assets/images/applepay-icon-gray-mini.png";
+import CartIcon from '../assets/icons/cart-icon-gray-30px.png'
+import SaveIcon from '../assets/icons/save-icon-outlined-pink.png'
+import ShareIcon from '../assets/icons/share-icon-outlined-pink.png'
+import VisaIcon from "../assets/icons/visa-icon-gray-mini.png";
+import SepaIcon from "../assets/icons/sepa-icon-gray-mini.png";
+import MasterCardIcon from "../assets/icons/master-icon-gray-mini.png";
+import ApplepayIcon from "../assets/icons/applepay-icon-gray-mini.png";
 import '../styles/BookDetails.css'
 import {useParams} from "react-router-dom";
 

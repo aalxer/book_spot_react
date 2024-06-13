@@ -1,4 +1,4 @@
-import LikeIcon from '../../assets/images/like-icon-outlined.png'
+import LikeIcon from '../../assets/icons/like-icon-outlined.png'
 import '../../styles/LikeCounterContainer.css'
 import {useState} from "react";
 import {useCounter} from "../../hooks/useCounter";
