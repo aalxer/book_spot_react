@@ -6,11 +6,15 @@ import RefreshIcon from '../assets/icons/refresh-icon-pink.png'
 import FilterIcon from '../assets/icons/filter-icon-pink.png'
 import LoadingContainer from "../components/body/LoadingContainer";
 import NextAndPrevPageContainer from "../components/body/NextAndPrevPageContainer";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainBody() {
 
+    const navigate = useNavigate();
     const {books, state, error, refresh, currentPage, setCurrentPage} = useBooks();
 
+    const {page} = useParams();
+    console.log(`pageNumber Parameter: ${page}` )
 
     // useEffect in default: sie wird nur beim ersten rendern aufgerufen
     useEffect(() => {
@@ -21,6 +25,12 @@ export default function MainBody() {
             clearInterval(intervalId);
         }
     });
+
+    useEffect(() => {
+        if(page) {
+            setCurrentPage(parseInt(page));
+        }
+    }, [page]);
 
     function generateBooksContainers() {
         if (state === "success") {
@@ -67,7 +77,9 @@ export default function MainBody() {
     }
 
     function nextPage() {
-        setCurrentPage(currentPage + 1);
+        const nextPage = currentPage +1;
+        setCurrentPage(nextPage);
+        navigate(`/home/page/${nextPage}`);
     }
 
     function prevPage() {

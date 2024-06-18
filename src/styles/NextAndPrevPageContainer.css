@@ -7,9 +7,14 @@
 }
 
 .nextAndPrevContentCotaniner p {
-    width: 70px;
+    width: 60px;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+}
+
+.nextAndPrevContentCotaniner img {
+    width: 23px;
+    height: 23px;
 }
 
 .nextAndPrevContentCotaniner img:hover {

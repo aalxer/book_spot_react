@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Book} from "../types/Book";
-import {getAllBooks, getBooksPerPage} from "../domain/Api";
+import {getBooksPerPage} from "../domain/Api";
 import {State} from "../types/State"
 
 export const useBooks = () => {
