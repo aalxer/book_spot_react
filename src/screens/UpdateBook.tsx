@@ -1,24 +1,20 @@
-import '../../styles/UpdateBookContainer.css'
+import '../styles/UpdateBookContainer.css'
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetbook} from "../../hooks/useGetbook";
-import BackButton from "../body/BackButton";
-import LoadingContainer from "../body/LoadingContainer";
+import {useGetbook} from "../hooks/useGetbook";
+import BackButton from "../components/body/BackButton";
+import LoadingContainer from "../components/body/LoadingContainer";
 import {FormEvent, useEffect, useState} from "react";
-import {Book} from "../../types/Book";
-import {useUpdate} from "../../hooks/dashboardServices";
+import {Book} from "../types/Book";
+import {useUpdate} from "../hooks/dashboardServices";
+import {useInputsValidate} from "../hooks/useValidate";
 
-interface InvalidInputs {
-    title?:string,
-    isbn?:string
-}
-
-export default function UpdateBookContainer() {
+export default function UpdateBook() {
 
     const {bookId} = useParams();
     const {state, book} = useGetbook(bookId);
     const {updateState, updateBook} = useUpdate();
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({} as InvalidInputs);
+    const {errors, validate} = useInputsValidate();
 
     const [title, setTitle] = useState("");
     const [subtitle, setSubTitle] = useState("");
@@ -43,14 +39,15 @@ export default function UpdateBookContainer() {
     }, [state]);
 
     useEffect(() => {
-        if(updateState === "success") {
+        if (updateState === "success") {
             navigate("/home/" + bookId);
-        } if(updateState === "error") {
+        }
+        if (updateState === "error") {
             navigate("/error");
         }
     }, [updateState]);
 
-    function displayBookInfo() {
+    function displayUpdateForm() {
         return <div className="updateBookMainContainer">
             <BackButton/>
             <form onSubmit={(event) => handleUpdate(event)}
@@ -121,21 +118,10 @@ export default function UpdateBookContainer() {
     function handleUpdate(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (validate()) {
+        if (validate(title, isbn)) {
             let updatedBook = createUpdatedBook();
-            updateBook(parseInt(bookId as string), updatedBook);
-        }
-    }
-
-    function validate(): boolean {
-        if (title.length === 0) {
-            setErrors({title: "field must be filled in"})
-            return false;
-        } else if (isbn.length === 0){
-            setErrors({isbn: "field must be filled in"})
-            return false;
-        } else {
-            return true;
+            updateBook(parseInt(bookId!), updatedBook);
+            // in useEffect wird auf den UpdateState reagiert und dementsprechend was gemacht
         }
     }
 
@@ -157,7 +143,7 @@ export default function UpdateBookContainer() {
     }
 
     return (<>
-        {state === "success" ? displayBookInfo()
+        {state === "success" ? displayUpdateForm()
             : state === "error" ? navigate("/error")
                 : <LoadingContainer/>}
     </>)

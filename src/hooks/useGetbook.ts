@@ -1,4 +1,4 @@
-import {getBookPerIsbn} from "../domain/Api"
+import {getBookPerId} from "../domain/Api"
 import {useEffect, useState} from "react";
 import {State} from "../types/State";
 import {Book} from "../types/Book";
@@ -15,7 +15,7 @@ export const useGetbook = (bookId: any) => {
 
     function getBook(isbn:number) {
         setState("loading")
-        getBookPerIsbn(isbn).then((book) => {
+        getBookPerId(isbn).then((book) => {
             setState("success")
             setBook(book);
         }).catch((error) => {

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {State} from "../types/State";
-import {deleteBookById, updateBookById} from "../domain/Api";
+import {deleteBookById, updateBookById, addBook} from "../domain/Api";
 import {Book} from "../types/Book";
 
 export const useDelete = () => {
@@ -31,4 +31,19 @@ export const useUpdate = () => {
     }
 
     return {updateState, updateBook}
+}
+
+export const useAdd = () => {
+
+    const [addState, setAddState] = useState<State>("initial")
+
+    const addNewBook = (newBook:Book) => {
+        addBook(newBook).then(() => {
+            setAddState("success")
+        }).catch((error) => {
+            setAddState("error")
+        })
+    }
+
+    return {addState, addNewBook}
 }

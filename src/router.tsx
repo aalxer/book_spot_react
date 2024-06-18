@@ -3,10 +3,10 @@ import BookDetails from "./screens/BookDetails";
 import React from "react";
 import HomePageBody from "./screens/Homepage";
 import ErrorScreen from "./screens/ErrorScreen";
-import AddNewBook from "./components/dashboard/AddNewBook";
+import AddNewBook from "./screens/AddNewBook";
 import Impressum from "./screens/Impressum";
-import DashboardHome from "./components/dashboard/DashboardHome";
-import UpdateBookContainer from "./components/dashboard/UpdateBookContainer";
+import DashboardHome from "./screens/DashboardHome";
+import UpdateBook from "./screens/UpdateBook";
 import App from "./components/App";
 
 export const router = createBrowserRouter([
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/dashboard/:bookId",
-                element: <UpdateBookContainer/>
+                element: <UpdateBook/>
             },
             {
                 path: "/add",

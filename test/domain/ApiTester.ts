@@ -1,4 +1,4 @@
-import {getAllBooks, getBooksPerPage, getBookPerIsbn} from "../../src/domain/Api"
+import {getAllBooks, getBooksPerPage, getBookPerId} from "../../src/domain/Api"
 
 getBooksPerPage(1).then((book) => {
     book.map(b => {

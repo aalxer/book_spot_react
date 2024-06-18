@@ -1,12 +1,12 @@
-import {Book} from "../../types/Book";
-import {useBooks} from "../../hooks/useBooks";
-import '../../styles/DashboardHome.css'
-import '../../styles/App.css'
-import DeleteIcon from '../../assets/icons/delete-icon-red.png'
-import EditIcon from '../../assets/icons/edit-icon-yello.png'
-import LoadingContainer from "../body/LoadingContainer";
-import AddButton from "./AddButton"
-import {useDelete} from "../../hooks/dashboardServices";
+import {Book} from "../types/Book";
+import {useBooks} from "../hooks/useBooks";
+import '../styles/DashboardHome.css'
+import '../styles/App.css'
+import DeleteIcon from '../assets/icons/delete-icon-red.png'
+import EditIcon from '../assets/icons/edit-icon-yello.png'
+import LoadingContainer from "../components/body/LoadingContainer";
+import AddButton from "../components/dashboard/AddButton"
+import {useDelete} from "../hooks/dashboardServices";
 import {NavLink} from "react-router-dom";
 
 export default function DashboardHome() {
