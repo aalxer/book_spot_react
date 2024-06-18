@@ -5,6 +5,7 @@ import VisaIcon from "../assets/icons/visa-icon-gray-mini.png";
 import SepaIcon from "../assets/icons/sepa-icon-gray-mini.png";
 import MasterCardIcon from "../assets/icons/master-icon-gray-mini.png";
 import ApplepayIcon from "../assets/icons/applepay-icon-gray-mini.png";
+import DefaultCover from '../assets/images/default-book-cover.png'
 import '../styles/BookDetails.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {useGetbook} from "../hooks/useGetbook";
@@ -23,7 +24,7 @@ export default function BookDetails() {
             <div className="content-container">
                 <div className="book-head-container">
                     <div className="book-head-left-container">
-                        <img src={book.cover} alt="book-cover"/>
+                        <img src={book.cover?.length === 0 ? DefaultCover : book.cover} alt="book-cover"/>
                     </div>
                     <div className="book-head-middle-container">
                         <div className="title-container">

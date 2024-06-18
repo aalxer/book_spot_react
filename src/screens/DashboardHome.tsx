@@ -16,14 +16,7 @@ export default function DashboardHome() {
 
     function displayItems() {
 
-        if (state === "success") {
-            {
-                generateTableTitle()
-            }
-            return books.map((book) => generateBookItems(book))
-        } else {
-            return <LoadingContainer/>
-        }
+        return books.map((book) => generateBookItems(book))
     }
 
     function generateTableTitle() {
@@ -60,9 +53,13 @@ export default function DashboardHome() {
         </div>
     }
 
-    return (<div className="dashboardContentContainer">
-        <AddButton/>
-        {generateTableTitle()}
-        {displayItems()}
-    </div>)
+    return (
+        state === "success" ?
+            <div className="dashboardContentContainer">
+                <AddButton/>
+                {generateTableTitle()}
+                {displayItems()}
+            </div>
+            : <LoadingContainer/>
+    )
 }

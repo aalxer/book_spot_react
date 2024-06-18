@@ -27,6 +27,10 @@
     font-weight: 300;
 }
 
+.dashboardBookItemContainer:hover {
+    background: #f6f6f6;
+}
+
 .editBtn, .deleteBtn {
     display: flex;
     align-items: center;

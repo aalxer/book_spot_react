@@ -29,7 +29,7 @@ export default function AddNewBook() {
         if (addState === "error") {
             navigate("/error");
         }
-    },[addState])
+    }, [addState])
 
     function displayAddForm() {
         return <div className="addBookMainContainer">
@@ -91,8 +91,8 @@ export default function AddNewBook() {
     function handleAddEvent(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if(validate(title, isbn)) {
-            let book:Book = {
+        if (validate(title, isbn)) {
+            let book: Book = {
                 title: title,
                 subtitle: subtitle,
                 isbn: isbn,

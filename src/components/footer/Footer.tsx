@@ -7,6 +7,8 @@ import Applepay from '../../assets/icons/apple-pay-icon-gray.png'
 import Facebook from '../../assets/icons/fb-icon-gray.png'
 import Instagram from '../../assets/icons/insta-icon-gray.png'
 import X from '../../assets/icons/x-icon-gray.png'
+import {NavLink} from "react-router-dom";
+import Navbar from "../header/Navbar";
 
 export default function Footer() {
 
@@ -21,10 +23,10 @@ export default function Footer() {
                 <div className="right-content-links-container">
                     <p>useful links</p>
                     <ul>
+                        <li><NavLink to={"/impressum"}>impressum</NavLink></li>
+                        <li><NavLink to={"/impressum"}>privacy policy</NavLink></li>
                         <li>contact us</li>
                         <li>order book</li>
-                        <li>privacy policy</li>
-                        <li>impressum</li>
                         <li>your cart</li>
                     </ul>
                 </div>

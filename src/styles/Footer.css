@@ -65,6 +65,16 @@
     color: #bda3d2;
 }
 
+.right-content-links-container ul li a{
+    text-decoration: none;
+    color: #FEFEFE;
+}
+
+.right-content-links-container ul li a:hover {
+    cursor: pointer;
+    color: #bda3d2;
+}
+
 .right-content-links-container, .right-content-payment-follow-container {
     width: 50%;
 }
