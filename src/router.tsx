@@ -5,7 +5,7 @@ import HomePageBody from "./screens/Homepage";
 import ErrorScreen from "./screens/ErrorScreen";
 import AddNewBook from "./screens/AddNewBook";
 import Impressum from "./screens/Impressum";
-import DashboardHome from "./screens/DashboardHome";
+import Dashboard from "./screens/Dashboard";
 import UpdateBook from "./screens/UpdateBook";
 import App from "./components/App";
 
@@ -24,6 +24,10 @@ export const router = createBrowserRouter([
                 element: <HomePageBody/>
             },
             {
+                path: "/home/page/:page",
+                element: <HomePageBody/>
+            },
+            {
                 path: "/home/:bookId",
                 element: <BookDetails/>,
             },
@@ -33,7 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/dashboard",
-                element: <DashboardHome/>
+                element: <Dashboard/>
             },
             {
                 path: "/dashboard/:bookId",

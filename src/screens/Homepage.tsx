@@ -5,10 +5,12 @@ import {useBooks} from "../hooks/useBooks";
 import RefreshIcon from '../assets/icons/refresh-icon-pink.png'
 import FilterIcon from '../assets/icons/filter-icon-pink.png'
 import LoadingContainer from "../components/body/LoadingContainer";
+import NextAndPrevPageContainer from "../components/body/NextAndPrevPageContainer";
 
 export default function MainBody() {
 
-    const {books, state, error, refresh} = useBooks();
+    const {books, state, error, refresh, currentPage, setCurrentPage} = useBooks();
+
 
     // useEffect in default: sie wird nur beim ersten rendern aufgerufen
     useEffect(() => {
@@ -64,8 +66,20 @@ export default function MainBody() {
         }
     }
 
+    function nextPage() {
+        setCurrentPage(currentPage + 1);
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
     return <div id="homepage-body-content-container" className="homepage-body-content-container">
         {displayRefreshAndFilterIcons()}
         {generateBooksContainers()}
+        <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={5}
+                                  nextFunction={nextPage} prevFunction={prevPage}/>
     </div>
 }

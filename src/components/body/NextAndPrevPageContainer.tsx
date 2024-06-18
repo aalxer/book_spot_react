@@ -5,7 +5,7 @@ import '../../styles/NextAndPrevPageContainer.css'
 interface nextAndPrevContext {
     currentPage: number;
     isLastPage: boolean;
-    numberOfPageToDisplay?: number;
+    numberOfPageToDisplay: number;
 
     nextFunction(): void;
 

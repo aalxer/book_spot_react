@@ -9,7 +9,7 @@ import AddButton from "../components/dashboard/AddButton"
 import {useDelete} from "../hooks/dashboardServices";
 import {NavLink} from "react-router-dom";
 
-export default function DashboardHome() {
+export default function Dashboard() {
 
     const {books, state, refresh} = useBooks();
     const {deleteState, deleteBook} = useDelete();
