@@ -2,7 +2,7 @@ export interface Book {
     id?: number;
     title: string;
     subtitle?: string;
-    isbn: number;
+    isbn: string;
     abstract?: string;
     author?: string;
     publisher?: string;

@@ -54,7 +54,7 @@ export default function DashboardHome() {
                 <div className="editBtn"><img src={EditIcon} alt="edit-icon"/><p>Edit</p></div>
             </NavLink>
             <div className="deleteBtn" onClick={() => {
-                deleteBook(book.isbn)
+                deleteBook(book.id!)
                 deleteState === "error" ? alert("something went wrong") : refresh()
             }}><img src={DeleteIcon} alt="delete-icon"/><p>Drop</p></div>
         </div>

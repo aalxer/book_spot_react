@@ -27,12 +27,12 @@
     color: #9a9a9a;
     font-weight: 600;
     height: 30px;
-    margin-bottom: 20px;
 }
 
 .updateBookContentContainer label {
     font-size: 1rem;
     font-weight: 300;
+    margin-top: 20px;
 }
 
 .updateBookContentContainer input:hover, textarea:hover {
@@ -52,6 +52,22 @@
 
 .abstractText {
     height: 150px;
+}
+
+.inputValidationText {
+    color: #FA5252 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.fieldNotFilled {
+    border-bottom: #FA5252 solid 1px !important;
+}
+
+.hidden {
+    display: block !important;
 }
 
 .updateBookContentContainer button {

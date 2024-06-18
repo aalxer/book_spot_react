@@ -42,6 +42,10 @@ export const router = createBrowserRouter([
             {
                 path: "/add",
                 element: <AddNewBook/>
+            },
+            {
+                path: "/error",
+                element: <ErrorScreen/>
             }
         ]
     }

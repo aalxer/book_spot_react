@@ -98,44 +98,40 @@ function addBook(book:Book) {
             console.log("Error Message: " + error.message + " , Error Status: " + error.status)
         })
 }
-/*
-function updateBook(isbn, newBookDetails) {
+
+async function updateBookById(id:number, updatedBook:Book) {
 
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newBookDetails)
+        body: JSON.stringify(updatedBook)
     }
 
-    let promise = fetch(url + '/books/' + isbn, requestOptions)
-
-    promise
-        .then( (response) => {
-            console.log("Anfrage wurde erfolgreich gesendet")
-            if(response.ok) {
-
-                console.log("Buch wurde erfolgreich aktualisiert")
-                console.log("Statuscode: " + response.status + " , Statustext: " + response.statusText)
-
-                response.json().then( (result) =>
-                    console.log("result vom Server: " + result.title)
-                ).catch( (error) => {
-                    console.log("error beim einlesen der result")
-                } )
-
-            } else {
-                console.log("Error beim Aktualisieren")
-                console.log("Statuscode: " + response.status + " , Statustext: " + response.statusText)
-            }
-        })
-        .catch( (error) => {
-            console.log("Fehler beim Senden der Anfrage")
-            console.log("Error Message: " + error.message + " , Error Status: " + error.status)
-        })
+    try {
+        let response = await fetch(url + '/books/' + id, requestOptions);
+        console.log("Request was sent successfully")
+        if(response.ok) {
+            console.log("response was successfully")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            return await response.json()
+        } else if (response.status === 400) {
+            const errorResponse = await response.json();
+            console.log("Invalid Request")
+            console.log(errorResponse.errors);
+            throw Error(errorResponse)
+        } else {
+            console.log("Response failed")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            throw new Error(`${response.status} , ${response.statusText}`);
+        }
+    } catch (error) {
+        console.log("Request sending faild")
+        console.log(error)
+        throw new Error("Request sending faild")
+    }
 }
- */
 
-async function deleteBookByIsbn(isbn:number) {
+async function deleteBookById(isbn:number) {
 
     const requestOptions = {
         method: 'DELETE',
@@ -191,4 +187,4 @@ async function deleteBookByIsbn(isbn:number) {
 }
 
 
-export {getAllBooks, getBooksPerPage, deleteBookByIsbn, getBookPerIsbn}
+export {getAllBooks, getBooksPerPage, deleteBookById, updateBookById, getBookPerIsbn}

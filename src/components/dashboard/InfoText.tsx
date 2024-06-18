@@ -12,10 +12,10 @@ interface InfoTextProps {
 export default function InfoText(props:InfoTextProps) {
     return <div className="infoTextContainer">
         {
-            props.displaySuccessIcon ? <img src={SuccessIcon} alt="success-icon"/>
-                : props.displayErrorIcon ? <img src={ErrorIcon} alt="error-icon"/>
+            props?.displaySuccessIcon ? <img src={SuccessIcon} alt="success-icon"/>
+                : props?.displayErrorIcon ? <img src={ErrorIcon} alt="error-icon"/>
                     : <img src={InfoIcon} alt="info-icon"/>
         }
-        <p>{props.text}</p>
+        <p>{props?.text}</p>
     </div>
 }
