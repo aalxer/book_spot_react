@@ -1,5 +1,5 @@
 import '../styles/Homepage.css'
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import BooksContainer from '../components/body/BookContainer'
 import {useBooks} from "../hooks/useBooks";
 import RefreshIcon from '../assets/icons/refresh-icon-pink.png'
@@ -10,11 +10,18 @@ import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainBody() {
 
-    const navigate = useNavigate();
-    const {books, state, error, refresh, currentPage, setCurrentPage} = useBooks();
+    const { page } = useParams();
+    const initialPage = page ? parseInt(page) : 1;
 
-    const {page} = useParams();
+    const {books, state, error, refresh, currentPage, setCurrentPage} = useBooks(initialPage);
+    const navigate = useNavigate();
     console.log(`pageNumber Parameter: ${page}` )
+
+    useEffect(() => {
+        if(page) {
+            setCurrentPage(parseInt(page));
+        }
+    }, [page]);
 
     // useEffect in default: sie wird nur beim ersten rendern aufgerufen
     useEffect(() => {
@@ -25,12 +32,6 @@ export default function MainBody() {
             clearInterval(intervalId);
         }
     });
-
-    useEffect(() => {
-        if(page) {
-            setCurrentPage(parseInt(page));
-        }
-    }, [page]);
 
     function generateBooksContainers() {
         if (state === "success") {
@@ -84,7 +85,9 @@ export default function MainBody() {
 
     function prevPage() {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
+            const prevPage = currentPage -1;
+            setCurrentPage(prevPage);
+            navigate(`/home/page/${prevPage}`);
         }
     }
 

@@ -3,12 +3,12 @@ import {Book} from "../types/Book";
 import {getBooksPerPage} from "../domain/Api";
 import {State} from "../types/State"
 
-export const useBooks = () => {
+export const useBooks = (initialPage:number) => {
 
     const [books, setBooks] = useState<Book[]>([]);
     const [state, setState] = useState<State>("initial");
     const [lastRefresh, setLastRefresh] = useState(Date.now());
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(initialPage);
 
     const refresh = () => {
         setLastRefresh(Date.now());

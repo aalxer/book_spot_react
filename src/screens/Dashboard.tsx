@@ -11,7 +11,7 @@ import {NavLink} from "react-router-dom";
 
 export default function Dashboard() {
 
-    const {books, state, refresh} = useBooks();
+    const {books, state, refresh} = useBooks(1);
     const {deleteState, deleteBook} = useDelete();
 
     function displayItems() {
