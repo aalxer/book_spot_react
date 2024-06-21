@@ -1,9 +1,10 @@
 .LoaderContentContainer {
     display: flex;
     flex-direction: column;
-    justify-items: center;
+    justify-content: end;
     align-items: center;
-    min-height: 250px;
+    min-height: 600px ;
+    width: 100%;
 }
 
 .loader {
@@ -23,5 +24,5 @@
 
 .stateText {
     font-weight: 200;
-    font-size: 2rem;
+    color: #cbcbcb;
 }

@@ -10,20 +10,14 @@ import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainBody() {
 
-    const { page } = useParams();
+    const {page} = useParams();
     const initialPage = page ? parseInt(page) : 1;
-
-    const {books, state, error, refresh, currentPage, setCurrentPage} = useBooks(initialPage);
+    const [currentPage, setCurrentPage] = useState(initialPage);
+    //const [lastPage, setLastPage] = useState(false);
+    const {books, state, error, refresh} = useBooks(currentPage);
     const navigate = useNavigate();
-    console.log(`pageNumber Parameter: ${page}` )
 
-    useEffect(() => {
-        if(page) {
-            setCurrentPage(parseInt(page));
-        }
-    }, [page]);
-
-    // useEffect in default: sie wird nur beim ersten rendern aufgerufen
+    // Refresh jeder Minute (useEffect in default: sie wird nur beim ersten rendern aufgerufen):
     useEffect(() => {
 
         const intervalId = setInterval(refresh, 60000);
@@ -33,24 +27,35 @@ export default function MainBody() {
         }
     });
 
-    function generateBooksContainers() {
-        if (state === "success") {
-            prepareBooksToDisplay();
-
-            return books.map((book) =>
-                <BooksContainer key={book.id} id={book.id} cover={book.cover} title={book.title} author={book.author}
-                                isbn={book.isbn}
-                                price={book.price}/>)
-
-        } else if (state === "loading") {
-
-            return <LoadingContainer/>
-        } else {
-
-            return <div className="stateContainer">
-                <p className={"stateText"}>{state}</p>
-            </div>
+    /*
+    useEffect(() => {
+        if(books.length === 0) {
+            setLastPage(true);
+            prevPage();
         }
+    }, [books])
+
+     */
+
+    function displayContent() {
+        return <div id="homepage-body-content-container" className="homepage-body-content-container">
+            {displayRefreshAndFilterIcons()}
+            {generateBooksContainers()}
+            <div className="nextAndPrevPageContainer">
+                <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={5}
+                                          nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}/>
+            </div>
+        </div>
+    }
+
+    function generateBooksContainers() {
+        prepareBooksToDisplay();
+
+        return books.map((book) =>
+            <BooksContainer key={book.id} id={book.id} cover={book.cover} title={book.title}
+                            author={book.author}
+                            isbn={book.isbn}
+                            price={book.price}/>)
     }
 
     function prepareBooksToDisplay() {
@@ -78,23 +83,30 @@ export default function MainBody() {
     }
 
     function nextPage() {
-        const nextPage = currentPage +1;
+
+        const nextPage = currentPage + 1;
         setCurrentPage(nextPage);
         navigate(`/home/page/${nextPage}`);
+
     }
 
     function prevPage() {
         if (currentPage > 1) {
-            const prevPage = currentPage -1;
+            //setLastPage(false);
+            const prevPage = currentPage - 1;
             setCurrentPage(prevPage);
             navigate(`/home/page/${prevPage}`);
         }
     }
+    
+    function goToPage(pageNumber:number) {
+        setCurrentPage(pageNumber);
+        navigate(`/home/page/${pageNumber}`);
+    }
 
-    return <div id="homepage-body-content-container" className="homepage-body-content-container">
-        {displayRefreshAndFilterIcons()}
-        {generateBooksContainers()}
-        <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={5}
-                                  nextFunction={nextPage} prevFunction={prevPage}/>
-    </div>
+    return state === "success" ? displayContent()
+        : state === "loading" ? <LoadingContainer/>
+            : <div className="stateContainer">
+                <p className={"stateText"}>{state}</p>
+            </div>
 }

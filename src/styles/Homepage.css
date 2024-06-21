@@ -24,7 +24,10 @@
 }
 
 .stateContainer {
-    grid-column: span 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px ;
 }
 
 .homepage-body-content-container h3 {
@@ -39,4 +42,9 @@
 .stateText {
     font-weight: 200;
     font-size: 2rem;
+}
+
+.nextAndPrevPageContainer {
+    grid-column: span 5;
+    padding-bottom: 8%;
 }

@@ -6,6 +6,8 @@ import {Link} from "react-router-dom";
 export default function Header() {
     return <header className="main-header-container">
         <Navbar />
-        <Link to={"/home"}><img src={Logo} alt="logo" className="logo-header"/></Link>
+        <div className="logoContainer">
+            <Link to={"/home"}><img src={Logo} alt="logo" className="logo-header"/></Link>
+        </div>
     </header>
 }

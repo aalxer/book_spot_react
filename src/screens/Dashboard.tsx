@@ -8,10 +8,13 @@ import LoadingContainer from "../components/body/LoadingContainer";
 import AddButton from "../components/dashboard/AddButton"
 import {useDelete} from "../hooks/dashboardServices";
 import {NavLink} from "react-router-dom";
+import NextAndPrevPageContainer from "../components/body/NextAndPrevPageContainer";
+import {useState} from "react";
 
 export default function Dashboard() {
 
-    const {books, state, refresh} = useBooks(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const {books, state, refresh} = useBooks(currentPage);
     const {deleteState, deleteBook} = useDelete();
 
     function displayItems() {
@@ -53,12 +56,30 @@ export default function Dashboard() {
         </div>
     }
 
+    function nextPage() {
+        setCurrentPage(currentPage + 1);
+    }
+
+    function prevPage() {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    }
+
+    function goToPage(pageNumber:number) {
+        setCurrentPage(pageNumber);
+    }
+    
     return (
         state === "success" ?
             <div className="dashboardContentContainer">
                 <AddButton/>
                 {generateTableTitle()}
                 {displayItems()}
+                <div className="nextPrevContainer">
+                    <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={10}
+                                              nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}/>
+                </div>
             </div>
             : <LoadingContainer/>
     )

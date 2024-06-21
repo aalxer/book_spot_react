@@ -58,3 +58,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.nextPrevContainer {
+    margin-top: 20px;
+}
