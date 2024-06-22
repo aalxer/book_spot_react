@@ -20,7 +20,7 @@ export default function NextAndPrevPageContainer({
     return <div className="nextAndPrevContentCotaniner">
         <img onClick={prevFunction} src={PrevIcon} alt="previous-icon"/>
         {generateNumberOfPagesToDisplay().map((item) => {
-            return <p onClick={() => goToPage(item.numberOfPage)} className={item.className}>{item.numberOfPage}</p>
+            return <p key={item.numberOfPage} onClick={() => goToPage(item.numberOfPage)} className={item.className}>{item.numberOfPage}</p>
         })}
         {isLastPage ? "" : <img onClick={nextFunction} src={NextIcon} alt="next-icon"/>}
     </div>
