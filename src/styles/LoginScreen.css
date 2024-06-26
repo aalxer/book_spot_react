@@ -1,0 +1,105 @@
+.loginMainContainer {
+    margin: 8% 30%;
+}
+
+.loginContentContainer {
+    box-shadow: 0px -4px 25px rgba(0, 0, 0, 0.2);
+    padding: 80px 0;
+    min-height: 600px;
+}
+
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginTitle {
+    font-weight: 100;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #b7b7b7;
+}
+
+.loginFormInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 350px;
+}
+
+.loginFormInputContainer input {
+    font-size: 1.1rem;
+    color: #CD00FF;
+    font-weight: 400;
+    border: none;
+    border-bottom: #c7c7c7 solid 1px;
+    padding: 3px;
+    width: 100%;
+}
+
+.loginFormInputContainer input::placeholder {
+    font-size: 1.1rem;
+    color: #a2a2a2;
+    font-weight: 200;
+}
+
+.loginFormInputContainer input:focus {
+    border: none;
+    border-bottom: #CD00FF solid 1px;
+    outline: none;
+}
+
+.loginFormInputContainer img {
+    margin-right: 5px;
+}
+
+.loginFormLoginContainer {
+    margin-top: 20px;
+}
+
+.loginFormLoginContainer p {
+    font-size: .9rem;
+    font-weight: 300;
+
+}
+
+.loginFormLoginContainer p:hover {
+    cursor: pointer;
+}
+
+.loginFormLoginContainer button {
+    margin-top: 5px;
+    width: 350px;
+    height: 65px;
+    font-size: 1.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    transition: ease all .5s;
+    border: none;
+    color: #FEFEFE;
+    background-image: linear-gradient(to right, #8000ff, #dc00ff);
+}
+
+.loginFormLoginContainer button:hover {
+    cursor: pointer;
+}
+
+.inputValidationText {
+
+    color: #FA5252 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.fieldNotFilled {
+    border-bottom: #FA5252 solid 1px !important;
+}
+
+.hidden {
+    display: none !important;
+}

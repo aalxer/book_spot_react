@@ -8,6 +8,7 @@ import Impressum from "./screens/Impressum";
 import Dashboard from "./screens/Dashboard";
 import UpdateBook from "./screens/UpdateBook";
 import App from "./components/App";
+import LoginScreen from "./screens/LoginScreen";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
             {
                 path: "/home/:bookId",
                 element: <BookDetails/>,
+            },
+            {
+                path: "/login",
+                element: <LoginScreen/>
             },
             {
                 path: "/impressum",
