@@ -8,7 +8,7 @@ import {useAdd} from "../hooks/dashboardServices";
 
 export default function AddNewBook() {
 
-    const {errors, validate} = useInputsValidate();
+    const {errorsMap, validate} = useInputsValidate();
     const navigate = useNavigate();
     const {addState, addNewBook} = useAdd();
 
@@ -39,16 +39,16 @@ export default function AddNewBook() {
 
                 <div className="addBookContentContainer">
                     <p>main Info</p>
-                    <input className={`${errors.title ? "fieldNotFilled" : ""}`} type="text" placeholder="Title"
+                    <input className={`${errorsMap.has("title") ? "fieldNotFilled" : ""}`} type="text" placeholder="Title"
                            onChange={(event) => {
                                setTitle(event.target.value);
                            }}/>
-                    <input className={`${errors.isbn ? "fieldNotFilled" : ""}`} type="number" placeholder="Isbn"
+                    <input className={`${errorsMap.has("isbn") ? "fieldNotFilled" : ""}`} type="number" placeholder="Isbn"
                            onChange={(event) => {
                                setIsbn(event.target.value);
                            }}/>
-                    <p className="inputValidationText">{errors.title}</p>
-                    <p className="inputValidationText">{errors.isbn}</p>
+                    <p className="inputValidationText">{errorsMap.get("title")}</p>
+                    <p className="inputValidationText">{errorsMap.get("isbn")}</p>
 
                     <p>additional Info</p>
                     <input type="text" placeholder="Subtitle"
@@ -91,7 +91,11 @@ export default function AddNewBook() {
     function handleAddEvent(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (validate(title, isbn)) {
+        let inputsMap:Map<string,string> = new Map<string, string>();
+        inputsMap.set("title", title);
+        inputsMap.set("isbn", isbn);
+
+        if (validate(inputsMap)) {
             let book: Book = {
                 title: title,
                 subtitle: subtitle,

@@ -1,21 +1,26 @@
 import {useState} from "react";
-import {InvalidInputs} from "../types/InvalidInputs";
 
 export const useInputsValidate = () => {
 
-    const [errors, setErrors] = useState({} as InvalidInputs);
+    const [errorsMap, setError] = useState<Map<string, string>>(new Map())
 
-    function validate(title:string , isbn:string): boolean {
-        if (title.length === 0) {
-            setErrors({title: "field must be filled in"})
-            return false;
-        } else if (isbn.length === 0) {
-            setErrors({isbn: "field must be filled in"})
-            return false;
-        } else {
-            return true;
-        }
+    function validate(inputsMap: Map<string, string>): boolean {
+
+        let isValid = true;
+        let newErrorsMap = new Map<string, string>();
+
+        inputsMap.forEach((value, key) => {
+            if (value.length === 0) {
+                console.log("validate: " + value + " " + key);
+                newErrorsMap.set(key, "field must be filled in")
+                isValid = false;
+            }
+        })
+
+        // weil nur mit dem Aufrufen der set() mit einem neuen Zustand werden Änderungen getriggert
+        setError(newErrorsMap);
+        return isValid;
     }
 
-    return {errors, validate}
+    return {errorsMap, validate}
 }

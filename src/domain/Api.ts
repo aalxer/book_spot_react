@@ -184,5 +184,34 @@ async function deleteBookById(isbn: number) {
      */
 }
 
+async function login(email: string, password: string) {
 
-export {getAllBooks, getBooksPerPage, addBook, deleteBookById, updateBookById, getBookPerId}
+    const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    }
+
+    try {
+        let response = await fetch(url + '/login', requestOptions);
+        console.log("Request was sent successfully")
+        if (response.ok) {
+            console.log("response was successfully")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            return await response.json()
+        } else {
+            console.log("Response failed")
+            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
+            throw new Error(`${response.status} , ${response.statusText}`);
+        }
+    } catch (error) {
+        console.log("Request sending faild")
+        console.log(error)
+        throw new Error("Request sending faild")
+    }
+}
+
+export {getAllBooks, getBooksPerPage, addBook, deleteBookById, updateBookById, getBookPerId, login}

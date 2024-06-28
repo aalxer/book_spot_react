@@ -14,7 +14,7 @@ export default function UpdateBook() {
     const {state, book} = useGetbook(bookId);
     const {updateState, updateBook} = useUpdate();
     const navigate = useNavigate();
-    const {errors, validate} = useInputsValidate();
+    const {errorsMap, validate} = useInputsValidate();
 
     const [title, setTitle] = useState("");
     const [subtitle, setSubTitle] = useState("");
@@ -57,11 +57,11 @@ export default function UpdateBook() {
                     <p>Book Info</p>
 
                     <label className="twoColumns">Title</label>
-                    <input className={`twoColumns ${errors.title ? "fieldNotFilled" : ""}`} type="text" value={title}
+                    <input className={`twoColumns ${errorsMap.has("title") ? "fieldNotFilled" : ""}`} type="text" value={title}
                            onChange={(event) => {
                                setTitle(event.target.value);
                            }}/>
-                    <p className="twoColumns inputValidationText">{errors.title}</p>
+                    <p className="twoColumns inputValidationText">{errorsMap.get("title")}</p>
                     <label className="twoColumns">Subtitle</label>
                     <input className="twoColumns" type="text" value={subtitle}
                            onChange={(event) => {
@@ -77,7 +77,7 @@ export default function UpdateBook() {
 
                     <label>Isbn</label>
                     <label>Publisher</label>
-                    <input type="number" value={isbn} className={`${errors.isbn ? "fieldNotFilled" : ""}`}
+                    <input type="number" value={isbn} className={`${errorsMap.has("isbn") ? "fieldNotFilled" : ""}`}
                            onChange={(event) => {
                                setIsbn(event.target.value);
                            }}
@@ -87,7 +87,7 @@ export default function UpdateBook() {
                                setPublisher(event.target.value);
                            }}
                     />
-                    <p className="twoColumns inputValidationText">{errors.isbn}</p>
+                    <p className="twoColumns inputValidationText">{errorsMap.get("isbn")}</p>
                     <label>Price</label>
                     <label>Pages</label>
                     <input type="text" defaultValue={price}
@@ -118,7 +118,11 @@ export default function UpdateBook() {
     function handleUpdate(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (validate(title, isbn)) {
+        let inputsMap:Map<string,string> = new Map<string, string>();
+        inputsMap.set("title", title);
+        inputsMap.set("isbn", isbn);
+
+        if (validate(inputsMap)) {
             let updatedBook = createUpdatedBook();
             updateBook(parseInt(bookId!), updatedBook);
             // in useEffect wird auf den UpdateState reagiert und dementsprechend was gemacht
