@@ -198,15 +198,7 @@ async function login(email: string, password: string) {
     try {
         let response = await fetch(url + '/login', requestOptions);
         console.log("Request was sent successfully")
-        if (response.ok) {
-            console.log("response was successfully")
-            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
-            return await response.json()
-        } else {
-            console.log("Response failed")
-            console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
-            throw new Error(`${response.status} , ${response.statusText}`);
-        }
+        return response;
     } catch (error) {
         console.log("Request sending faild")
         console.log(error)

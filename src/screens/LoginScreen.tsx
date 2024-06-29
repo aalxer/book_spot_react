@@ -4,12 +4,15 @@ import UsernameIcon from "../assets/icons/username-icon-pink.png";
 import PasswordIcon from "../assets/icons/password-icon-pink.png";
 import React, {useState} from "react";
 import {useInputsValidate} from "../hooks/useValidate";
+import {useLogin} from "../hooks/useLogin";
+import InfoText from "../components/dashboard/InfoText";
 
 export default function LoginScreen() {
 
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const {errorsMap, validate} = useInputsValidate();
+    const {state, token, errorMessageFromServer, loginThrowApi} = useLogin();
 
     function getLoginForm() {
         return <div className="loginContentContainer">
@@ -17,9 +20,14 @@ export default function LoginScreen() {
                 handleLogin(event)
             }} className="loginFormContainer">
                 <p className="loginTitle">sign in</p>
+                {
+                    errorMessageFromServer ?
+                        <InfoText displaySuccessIcon={false} displayErrorIcon={true} text={errorMessageFromServer}/>
+                        : ""
+                }
                 <div className="loginFormInputContainer">
                     <img src={UsernameIcon} alt="username-icon"/>
-                    <input type="text" placeholder="username" value={username}
+                    <input type="text" placeholder="email" value={username}
                            className={errorsMap.has("username") ? "fieldNotFilled" : ""}
                            onChange={(event) => {
                                setUsername(event.target.value);
@@ -51,11 +59,10 @@ export default function LoginScreen() {
         inputsMap.set("password", password);
 
         if (validate(inputsMap)) {
-            // request senden
+            loginThrowApi(username, password);
         }
 
     }
-
 
     return <div className="loginMainContainer">
         <BackButton/>
