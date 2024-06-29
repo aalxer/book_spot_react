@@ -1,11 +1,13 @@
 import {useState} from "react";
 import {State} from "../types/State";
 import {login} from "../domain/Api"
+import {UserData} from "../types/UserData";
 
 export const useLogin = () => {
+
     const [state, setState] = useState<State>("initial");
-    const [token, setToken] = useState("");
     const [errorMessageFromServer, setErrorMessage] = useState("");
+    const [user, setUser] = useState({} as UserData);
 
     async function loginThrowApi(username: string, password: string) {
 
@@ -13,12 +15,22 @@ export const useLogin = () => {
         try {
             let response = await login(username, password);
 
-            if(response.ok) {
-                setState("success");
+            if (response.ok) {
+
                 let responseObject = await response.json();
-                setToken(responseObject.accessToken);
+
+                const loggedInUser: UserData = {
+                    username: responseObject.user.email,
+                    accessToken: responseObject.accessToken,
+                    admin: responseObject.user.role === "admin",
+                    userId: responseObject.user.id
+                }
+
+                setState("success");
+                setUser(loggedInUser);
                 setErrorMessage("")
             } else {
+
                 setState("error");
                 let responseMessage = await response.json();
                 setErrorMessage(responseMessage);
@@ -29,5 +41,5 @@ export const useLogin = () => {
         }
     }
 
-    return {state, token, errorMessageFromServer, loginThrowApi}
+    return {state, user, errorMessageFromServer, loginThrowApi}
 }

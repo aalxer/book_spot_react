@@ -2,17 +2,25 @@ import '../styles/LoginScreen.css'
 import BackButton from "../components/body/BackButton";
 import UsernameIcon from "../assets/icons/username-icon-pink.png";
 import PasswordIcon from "../assets/icons/password-icon-pink.png";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useInputsValidate} from "../hooks/useValidate";
 import {useLogin} from "../hooks/useLogin";
-import InfoText from "../components/dashboard/InfoText";
+import InfoText from "../components/login/InfoText";
+import {useNavigate} from "react-router-dom";
 
 export default function LoginScreen() {
 
-    const [username, setUsername] = useState<string>("");
-    const [password, setPassword] = useState<string>("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
     const {errorsMap, validate} = useInputsValidate();
-    const {state, token, errorMessageFromServer, loginThrowApi} = useLogin();
+    const {state, user, errorMessageFromServer, loginThrowApi} = useLogin();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (state === "success") {
+            handleSuccessLogin();
+        }
+    }, [state])
 
     function getLoginForm() {
         return <div className="loginContentContainer">
@@ -62,6 +70,13 @@ export default function LoginScreen() {
             loginThrowApi(username, password);
         }
 
+    }
+
+    function handleSuccessLogin() {
+
+        // TODO: user in redux-store speichern
+        // TODO: navigate oder andere Variante ?
+        navigate("/");
     }
 
     return <div className="loginMainContainer">
