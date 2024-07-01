@@ -7,6 +7,8 @@ import {useInputsValidate} from "../hooks/useValidate";
 import {useLogin} from "../hooks/useLogin";
 import InfoText from "../components/login/InfoText";
 import {useNavigate} from "react-router-dom";
+import {loginSuccess} from "../features/login/loginSlice";
+import {useDispatch} from "react-redux";
 
 export default function LoginScreen() {
 
@@ -15,6 +17,7 @@ export default function LoginScreen() {
     const {errorsMap, validate} = useInputsValidate();
     const {state, user, errorMessageFromServer, loginThrowApi} = useLogin();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (state === "success") {
@@ -74,7 +77,8 @@ export default function LoginScreen() {
 
     function handleSuccessLogin() {
 
-        // TODO: user in redux-store speichern
+        // user in store speichern:
+        dispatch(loginSuccess(user));
 
         // TODO: navigate ?
         navigate("/");

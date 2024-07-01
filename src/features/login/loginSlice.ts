@@ -6,16 +6,19 @@ const initialState:LoginState = {
     user: null
 }
 
-createSlice({
+const loginSlice = createSlice({
     name: 'login',
     initialState: initialState,
     reducers: {
-        login: (state, action:PayloadAction<UserData>) => {
-            initialState.user = action.payload;
+        loginSuccess: (state, action:PayloadAction<UserData>) => {
+            state.user = action.payload;
         },
 
-        logout: (state) => {
-            initialState.user = null;
+        logoutSuccess: (state) => {
+            state.user = null;
         }
     }
 })
+
+export const {loginSuccess, logoutSuccess} = loginSlice.actions;
+export default loginSlice.reducer;
