@@ -75,7 +75,8 @@ export default function LoginScreen() {
     function handleSuccessLogin() {
 
         // TODO: user in redux-store speichern
-        // TODO: navigate oder andere Variante ?
+
+        // TODO: navigate ?
         navigate("/");
     }
 

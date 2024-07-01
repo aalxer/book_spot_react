@@ -18,17 +18,15 @@ export const useLogin = () => {
             if (response.ok) {
 
                 let responseObject = await response.json();
-
                 const loggedInUser: UserData = {
                     username: responseObject.user.email,
                     accessToken: responseObject.accessToken,
                     admin: responseObject.user.role === "admin",
                     userId: responseObject.user.id
                 }
-
                 setState("success");
                 setUser(loggedInUser);
-                setErrorMessage("")
+                setErrorMessage("");
             } else {
 
                 setState("error");
