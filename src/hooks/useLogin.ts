@@ -23,7 +23,8 @@ export const useLogin = () => {
                     accessToken: responseObject.accessToken,
                     admin: responseObject.user.role === "admin",
                     userId: responseObject.user.id,
-                    nickname: responseObject.user.nickname
+                    nickname: responseObject.user.nickname,
+                    books: [{title: "test", isbn: "883278327"}]
                 }
                 setState("success");
                 setUser(loggedInUser);

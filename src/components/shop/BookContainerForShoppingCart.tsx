@@ -24,7 +24,7 @@ export default function BookContainerForShoppingCart({
             <p>isbn: {isbn}</p>
             <div className="book-preis-container-shoppingCart">
                 <p>{price}</p>
-                <p>2</p>
+                <p>1</p>
                 <img src={RemoveIcon} alt="remove-icon"/>
             </div>
         </div>
