@@ -22,7 +22,8 @@ export const useLogin = () => {
                     username: responseObject.user.email,
                     accessToken: responseObject.accessToken,
                     admin: responseObject.user.role === "admin",
-                    userId: responseObject.user.id
+                    userId: responseObject.user.id,
+                    nickname: responseObject.user.nickname
                 }
                 setState("success");
                 setUser(loggedInUser);

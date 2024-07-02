@@ -1,5 +1,5 @@
 import '../../styles/AddNewBook.css'
-import BackButton from "../../components/body/BackButton";
+import BackButton from "../../components/shared/BackButton";
 import {FormEvent, useEffect, useState} from "react";
 import {useInputsValidate} from "../../hooks/useValidate";
 import {useNavigate} from "react-router-dom";

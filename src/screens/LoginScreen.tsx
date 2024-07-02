@@ -1,5 +1,5 @@
 import '../styles/LoginScreen.css'
-import BackButton from "../components/body/BackButton";
+import BackButton from "../components/shared/BackButton";
 import UsernameIcon from "../assets/icons/username-icon-pink.png";
 import PasswordIcon from "../assets/icons/password-icon-pink.png";
 import React, {useEffect, useState} from "react";

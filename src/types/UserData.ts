@@ -5,5 +5,6 @@ export interface UserData {
     accessToken: string,
     admin: boolean,
     userId: number,
+    nickname?: string,
     books?: Book[],
 }

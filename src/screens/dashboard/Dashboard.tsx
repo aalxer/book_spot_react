@@ -4,11 +4,11 @@ import '../../styles/DashboardHome.css'
 import '../../styles/App.css'
 import DeleteIcon from '../../assets/icons/delete-icon-red.png'
 import EditIcon from '../../assets/icons/edit-icon-yello.png'
-import LoadingContainer from "../../components/body/LoadingContainer";
+import LoadingContainer from "../../components/shared/LoadingContainer";
 import AddButton from "../../components/dashboard/AddButton"
 import {useDelete} from "../../hooks/dashboardServices";
 import {NavLink} from "react-router-dom";
-import NextAndPrevPageContainer from "../../components/body/NextAndPrevPageContainer";
+import NextAndPrevPageContainer from "../../components/shared/NextAndPrevPageContainer";
 import {useState} from "react";
 
 export default function Dashboard() {

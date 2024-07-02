@@ -1,8 +1,8 @@
 import '../../styles/UpdateBookContainer.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {useGetbook} from "../../hooks/useGetbook";
-import BackButton from "../../components/body/BackButton";
-import LoadingContainer from "../../components/body/LoadingContainer";
+import BackButton from "../../components/shared/BackButton";
+import LoadingContainer from "../../components/shared/LoadingContainer";
 import {FormEvent, useEffect, useState} from "react";
 import {Book} from "../../types/Book";
 import {useUpdate} from "../../hooks/dashboardServices";

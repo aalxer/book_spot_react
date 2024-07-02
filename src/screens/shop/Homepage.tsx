@@ -1,11 +1,11 @@
 import '../../styles/Homepage.css'
 import React, {useEffect, useState} from 'react';
-import BooksContainer from '../../components/body/BookContainer'
+import BooksContainer from '../../components/shop/BookContainer'
 import {useBooks} from "../../hooks/useBooks";
 import RefreshIcon from '../../assets/icons/refresh-icon-pink.png'
 import FilterIcon from '../../assets/icons/filter-icon-pink.png'
-import LoadingContainer from "../../components/body/LoadingContainer";
-import NextAndPrevPageContainer from "../../components/body/NextAndPrevPageContainer";
+import LoadingContainer from "../../components/shared/LoadingContainer";
+import NextAndPrevPageContainer from "../../components/shared/NextAndPrevPageContainer";
 import {useNavigate, useParams} from "react-router-dom";
 
 export default function Homepage() {

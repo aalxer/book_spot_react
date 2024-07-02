@@ -9,8 +9,8 @@ import DefaultCover from '../../assets/images/default-book-cover.png'
 import '../../styles/BookDetails.css'
 import {useNavigate, useParams} from "react-router-dom";
 import {useGetbook} from "../../hooks/useGetbook";
-import LoadingContainer from "../../components/body/LoadingContainer";
-import BackButton from "../../components/body/BackButton";
+import LoadingContainer from "../../components/shared/LoadingContainer";
+import BackButton from "../../components/shared/BackButton";
 
 export default function BookDetails() {
 

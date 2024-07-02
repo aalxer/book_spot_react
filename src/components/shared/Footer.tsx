@@ -8,7 +8,7 @@ import Facebook from '../../assets/icons/fb-icon-gray.png'
 import Instagram from '../../assets/icons/insta-icon-gray.png'
 import X from '../../assets/icons/x-icon-gray.png'
 import {NavLink} from "react-router-dom";
-import Navbar from "../header/Navbar";
+import Navbar from "./header/Navbar";
 
 export default function Footer() {
 

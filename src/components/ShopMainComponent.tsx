@@ -1,7 +1,7 @@
 import ScrollToTop from "../utils/ScrollToTop";
-import Header from "./header/Header";
+import Header from "./shared/header/Header";
 import {Navigate, Outlet} from "react-router-dom";
-import Footer from "./footer/Footer";
+import Footer from "./shared/Footer";
 import React from "react";
 import {useSelector} from "react-redux";
 import {selectUserFromState} from "../app/store";
