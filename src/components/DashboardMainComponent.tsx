@@ -14,7 +14,7 @@ export default function DashboardMainComponent() {
 
     ScrollToTop();
 
-    return user && user.admin ?
+    return isAdmin ?
         <>
             <Header/>
             <Outlet/>

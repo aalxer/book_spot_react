@@ -8,7 +8,7 @@ import LoadingContainer from "../../components/body/LoadingContainer";
 import NextAndPrevPageContainer from "../../components/body/NextAndPrevPageContainer";
 import {useNavigate, useParams} from "react-router-dom";
 
-export default function MainBody() {
+export default function Homepage() {
 
     const {page} = useParams();
     const initialPage = page ? parseInt(page) : 1;

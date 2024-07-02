@@ -79,8 +79,6 @@ export default function LoginScreen() {
 
         // user in shop speichern:
         dispatch(loginSuccess(user));
-
-        // TODO: navigate ?
         navigate("/");
     }
 

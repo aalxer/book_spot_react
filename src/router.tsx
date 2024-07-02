@@ -1,7 +1,7 @@
 import {createBrowserRouter, redirect} from 'react-router-dom';
 import BookDetails from "./screens/shop/BookDetails";
 import React from "react";
-import HomePageBody from "./screens/shop/Homepage";
+import Homepage from "./screens/shop/Homepage";
 import ErrorScreen from "./screens/ErrorScreen";
 import AddNewBook from "./screens/dashboard/AddNewBook";
 import Impressum from "./screens/shop/Impressum";
@@ -27,30 +27,30 @@ export const router = createBrowserRouter([
                 element: <LoginScreen/>
             },
             {
-              path: "/home",
-              element: <ShopMainComponent/>,
-              children: [
-                  {
-                      path: "",
-                      loader: () => redirect("/home/en")
-                  },
-                  {
-                      path: "/home/en",
-                      element: <HomePageBody/>
-                  },
-                  {
-                      path: "/home/page/:page",
-                      element: <HomePageBody/>
-                  },
-                  {
-                      path: "/home/:bookId",
-                      element: <BookDetails/>,
-                  },
-                  {
-                      path: "/home/impressum",
-                      element: <Impressum/>
-                  },
-              ]
+                path: "/home",
+                element: <ShopMainComponent/>,
+                children: [
+                    {
+                        path: "",
+                        loader: () => redirect("/home/en")
+                    },
+                    {
+                        path: "/home/en",
+                        element: <Homepage/>
+                    },
+                    {
+                        path: "/home/page/:page",
+                        element: <Homepage/>
+                    },
+                    {
+                        path: "/home/:bookId",
+                        element: <BookDetails/>,
+                    },
+                    {
+                        path: "/home/impressum",
+                        element: <Impressum/>
+                    },
+                ]
             },
             {
                 path: "/dashboard",
