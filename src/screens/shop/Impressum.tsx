@@ -1,5 +1,5 @@
-import '../styles/Impressum.css'
-import BackButton from "../components/body/BackButton";
+import '../../styles/Impressum.css'
+import BackButton from "../../components/body/BackButton";
 
 export default function Impressum() {
 

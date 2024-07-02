@@ -8,4 +8,4 @@ export const store = configureStore({
 })
 
 type RootState = ReturnType<typeof store.getState>;
-export const selectUserNameFromState = (state: RootState) => state.login.user?.username;
+export const selectUserFromState = (state: RootState) => state.login.user;

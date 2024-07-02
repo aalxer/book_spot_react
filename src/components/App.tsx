@@ -9,8 +9,6 @@ export default function App() {
     ScrollToTop()
 
     return <div className="main-content-container">
-        <Header/>
         <Outlet/>
-        <Footer/>
     </div>
 }

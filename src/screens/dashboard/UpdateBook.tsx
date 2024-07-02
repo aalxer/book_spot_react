@@ -1,12 +1,12 @@
-import '../styles/UpdateBookContainer.css'
+import '../../styles/UpdateBookContainer.css'
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetbook} from "../hooks/useGetbook";
-import BackButton from "../components/body/BackButton";
-import LoadingContainer from "../components/body/LoadingContainer";
+import {useGetbook} from "../../hooks/useGetbook";
+import BackButton from "../../components/body/BackButton";
+import LoadingContainer from "../../components/body/LoadingContainer";
 import {FormEvent, useEffect, useState} from "react";
-import {Book} from "../types/Book";
-import {useUpdate} from "../hooks/dashboardServices";
-import {useInputsValidate} from "../hooks/useValidate";
+import {Book} from "../../types/Book";
+import {useUpdate} from "../../hooks/dashboardServices";
+import {useInputsValidate} from "../../hooks/useValidate";
 
 export default function UpdateBook() {
 

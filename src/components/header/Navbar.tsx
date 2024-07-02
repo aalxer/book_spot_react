@@ -6,15 +6,15 @@ import LogoutIcon from '../../assets/icons/logout-icon-gray.png'
 import UserIcon from '../../assets/icons/user-icon-gray.png'
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {selectUserNameFromState} from "../../app/store";
+import {selectUserFromState} from "../../app/store";
 
 export default function Navbar() {
 
-    const username = useSelector(selectUserNameFromState);
+    const user = useSelector(selectUserFromState);
 // <li><img src={CartIcon} alt="cart-icon"/></li>
     return <div className="navbar-container">
         <ul className="navbar-container-ul">
-            <li>{username}</li>
+            <li>{user?.username}</li>
             <li><Link to={"/dashboard"}><img src={SettingIcon} alt="mail-icon"/></Link></li>
             <li><Link to={"/login"}><img src={UserIcon} alt="login-icon"/></Link></li>
             <li><Link to={"/dashboard"}><img src={LogoutIcon} alt="mail-icon"/></Link></li>

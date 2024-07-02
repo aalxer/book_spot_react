@@ -1,10 +1,10 @@
-import '../styles/AddNewBook.css'
-import BackButton from "../components/body/BackButton";
+import '../../styles/AddNewBook.css'
+import BackButton from "../../components/body/BackButton";
 import {FormEvent, useEffect, useState} from "react";
-import {useInputsValidate} from "../hooks/useValidate";
+import {useInputsValidate} from "../../hooks/useValidate";
 import {useNavigate} from "react-router-dom";
-import {Book} from "../types/Book";
-import {useAdd} from "../hooks/dashboardServices";
+import {Book} from "../../types/Book";
+import {useAdd} from "../../hooks/dashboardServices";
 
 export default function AddNewBook() {
 

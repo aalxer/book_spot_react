@@ -1,11 +1,11 @@
-import '../styles/Homepage.css'
+import '../../styles/Homepage.css'
 import React, {useEffect, useState} from 'react';
-import BooksContainer from '../components/body/BookContainer'
-import {useBooks} from "../hooks/useBooks";
-import RefreshIcon from '../assets/icons/refresh-icon-pink.png'
-import FilterIcon from '../assets/icons/filter-icon-pink.png'
-import LoadingContainer from "../components/body/LoadingContainer";
-import NextAndPrevPageContainer from "../components/body/NextAndPrevPageContainer";
+import BooksContainer from '../../components/body/BookContainer'
+import {useBooks} from "../../hooks/useBooks";
+import RefreshIcon from '../../assets/icons/refresh-icon-pink.png'
+import FilterIcon from '../../assets/icons/filter-icon-pink.png'
+import LoadingContainer from "../../components/body/LoadingContainer";
+import NextAndPrevPageContainer from "../../components/body/NextAndPrevPageContainer";
 import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainBody() {

@@ -77,7 +77,7 @@ export default function LoginScreen() {
 
     function handleSuccessLogin() {
 
-        // user in store speichern:
+        // user in shop speichern:
         dispatch(loginSuccess(user));
 
         // TODO: navigate ?

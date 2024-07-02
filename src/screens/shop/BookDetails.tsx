@@ -1,16 +1,16 @@
-import CartIcon from '../assets/icons/cart-icon-gray-30px.png'
-import SaveIcon from '../assets/icons/save-icon-outlined-pink.png'
-import ShareIcon from '../assets/icons/share-icon-outlined-pink.png'
-import VisaIcon from "../assets/icons/visa-icon-gray-mini.png";
-import SepaIcon from "../assets/icons/sepa-icon-gray-mini.png";
-import MasterCardIcon from "../assets/icons/master-icon-gray-mini.png";
-import ApplepayIcon from "../assets/icons/applepay-icon-gray-mini.png";
-import DefaultCover from '../assets/images/default-book-cover.png'
-import '../styles/BookDetails.css'
+import CartIcon from '../../assets/icons/cart-icon-gray-30px.png'
+import SaveIcon from '../../assets/icons/save-icon-outlined-pink.png'
+import ShareIcon from '../../assets/icons/share-icon-outlined-pink.png'
+import VisaIcon from "../../assets/icons/visa-icon-gray-mini.png";
+import SepaIcon from "../../assets/icons/sepa-icon-gray-mini.png";
+import MasterCardIcon from "../../assets/icons/master-icon-gray-mini.png";
+import ApplepayIcon from "../../assets/icons/applepay-icon-gray-mini.png";
+import DefaultCover from '../../assets/images/default-book-cover.png'
+import '../../styles/BookDetails.css'
 import {useNavigate, useParams} from "react-router-dom";
-import {useGetbook} from "../hooks/useGetbook";
-import LoadingContainer from "../components/body/LoadingContainer";
-import BackButton from "../components/body/BackButton";
+import {useGetbook} from "../../hooks/useGetbook";
+import LoadingContainer from "../../components/body/LoadingContainer";
+import BackButton from "../../components/body/BackButton";
 
 export default function BookDetails() {
 
