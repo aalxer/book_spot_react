@@ -1,0 +1,70 @@
+.book-display-content-container-shoppingCart {
+    max-width: 215px;
+    min-width: auto;
+    height: fit-content;
+    box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+}
+
+.book-display-cover-cintainer-shoppingCart {
+    position: relative;
+    max-width: 100%;
+}
+
+.book-cover-shoppingCart {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.book-display-info-container-shoppingCart {
+    max-width: 100%;
+    padding: 10px 50px 50px 50px;
+    text-align: left;
+}
+
+.book-display-info-container-shoppingCart a {
+    text-decoration: none;
+    color: #8a8a8a;
+}
+
+.book-display-info-container-shoppingCart h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-display-info-container-shoppingCart p {
+    font-size: .9rem;
+    font-weight: 300;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-preis-container-shoppingCart {
+    width: 100%;
+    margin: 20px 0 0 0;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.book-preis-container-shoppingCart p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.book-preis-container-shoppingCart img {
+    text-align: right;
+}
+
+.book-preis-container-shoppingCart img:hover {
+    cursor: pointer;
+}

@@ -11,6 +11,7 @@ import App from "./components/App";
 import LoginScreen from "./screens/LoginScreen";
 import DashboardMainComponent from "./components/DashboardMainComponent";
 import ShopMainComponent from "./components/ShopMainComponent";
+import ShoppingCart from "./components/shop/ShoppingCart";
 
 export const router = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
                     {
                         path: "/home/page/:page",
                         element: <Homepage/>
+                    },
+                    {
+                        path: "/home/cart",
+                        element: <ShoppingCart/>
                     },
                     {
                         path: "/home/:bookId",
