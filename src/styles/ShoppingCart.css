@@ -9,12 +9,12 @@
 
 .booksContainer {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
     padding-bottom: 40px;
-    border-bottom: #c4c4c4 solid 1px;
+    border-bottom: #dadada solid 1px;
 }
 
 .infoContainer {

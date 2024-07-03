@@ -12,7 +12,7 @@ export default function ShoppingCart() {
     function getShoppingCartContent() {
         return <>
             <div className="booksContainer">
-                {customerBooks!.map((book) => (
+                {customerBooks.map((book) => (
                     <BookContainerForShoppingCart id={book.id} title={book.title} isbn={book.isbn} price={book.price}
                                                   cover={book.cover}/>
                 ))}
