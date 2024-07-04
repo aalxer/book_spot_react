@@ -2,20 +2,24 @@ import {Book} from "../../types/Book";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ShoppingCartState} from "../../types/ShoppingCartState";
 
-const initialState: ShoppingCartState[] = [];
+const initialState:ShoppingCartState[] = [];
 
 const shoppingCartSlice = createSlice({
     name: "shoppingCart",
     initialState: initialState,
     reducers: {
+        updateInitialState: (state, action:PayloadAction<ShoppingCartState[]>) => {
+            return action.payload;
+        },
+
         addItemsToShoppingCart: (state, action: PayloadAction<Book>) => {
 
             const existingItem = state.find(item => item.book.id === action.payload.id);
-
             existingItem ? existingItem.count += 1 : state.push({
                 book: action.payload,
                 count: 1
             })
+
         },
 
         removeItemFromShoppingCart: (state, action: PayloadAction<number>) => {
@@ -24,5 +28,5 @@ const shoppingCartSlice = createSlice({
     }
 })
 
-export const {addItemsToShoppingCart, removeItemFromShoppingCart} = shoppingCartSlice.actions;
+export const {addItemsToShoppingCart, removeItemFromShoppingCart, updateInitialState} = shoppingCartSlice.actions;
 export default shoppingCartSlice.reducer;

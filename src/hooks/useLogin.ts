@@ -18,13 +18,20 @@ export const useLogin = () => {
             if (response.ok) {
 
                 let responseObject = await response.json();
-                const loggedInUser: UserData = {
+                const loggedInUser: UserData = responseObject.user.role === "admin" ? {
                     username: responseObject.user.email,
                     accessToken: responseObject.accessToken,
-                    admin: responseObject.user.role === "admin",
+                    admin: true,
                     userId: responseObject.user.id,
                     nickname: responseObject.user.nickname
-                }
+                } : {                    username: responseObject.user.email,
+                    accessToken: responseObject.accessToken,
+                    admin: false,
+                    userId: responseObject.user.id,
+                    nickname: responseObject.user.nickname,
+                    shoppingCart: responseObject.user.shoppingCart
+                };
+
                 setState("success");
                 setUser(loggedInUser);
                 setErrorMessage("");

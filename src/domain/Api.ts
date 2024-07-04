@@ -1,4 +1,5 @@
 import {Book} from '../types/Book'
+import {ShoppingCartState} from "../types/ShoppingCartState";
 
 const url: String = 'http://localhost:4730';
 
@@ -206,4 +207,25 @@ async function login(email: string, password: string) {
     }
 }
 
-export {getAllBooks, getBooksPerPage, addBook, deleteBookById, updateBookById, getBookPerId, login}
+async function updateUserShoppingCart(userId:number, products:ShoppingCartState[]) {
+
+    const requestOptions = {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            shoppingCart: products
+        })
+    }
+
+    try {
+        let response = await fetch(url + '/users/' + userId , requestOptions);
+        console.log("Request was sent successfully")
+        return response;
+    } catch (error) {
+        console.log("Request sending faild")
+        console.log(error)
+        throw new Error("Request sending faild")
+    }
+}
+
+export {getAllBooks, getBooksPerPage, addBook, deleteBookById, updateBookById, getBookPerId, login, updateUserShoppingCart}

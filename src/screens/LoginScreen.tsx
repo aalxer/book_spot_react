@@ -9,6 +9,7 @@ import InfoText from "../components/login/InfoText";
 import {useNavigate} from "react-router-dom";
 import {loginSuccess} from "../features/login/loginSlice";
 import {useDispatch} from "react-redux";
+import {updateInitialState} from "../features/shoppingCart/ShoppingCartSlice";
 
 export default function LoginScreen() {
 
@@ -79,6 +80,10 @@ export default function LoginScreen() {
 
         // user in shop speichern:
         dispatch(loginSuccess(user));
+        // TODO richtig hier ?
+        if (!user.admin) {
+            dispatch(updateInitialState(user.shoppingCart!));
+        }
         navigate("/");
     }
 
