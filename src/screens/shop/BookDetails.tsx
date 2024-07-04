@@ -11,12 +11,19 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useGetbook} from "../../hooks/useGetbook";
 import LoadingContainer from "../../components/shared/LoadingContainer";
 import BackButton from "../../components/shared/BackButton";
+import {addItemsToShoppingCart} from "../../features/shoppingCart/ShoppingCartSlice";
+import {useDispatch} from "react-redux";
 
 export default function BookDetails() {
 
     const {bookId} = useParams<{ bookId: string }>();
     const {state, book} = useGetbook(bookId);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    function handleAddBookToShoppingCart() {
+        dispatch(addItemsToShoppingCart(book));
+    }
 
     function displayBookDetails() {
         return <div className="book-details-main-container">
@@ -40,7 +47,7 @@ export default function BookDetails() {
                     <div className="book-head-right-container">
                         <div className="buy-container">
                             <h1>{book.price}</h1><p> inkl. gesetzt. MwSt.</p>
-                            <button><img src={CartIcon} alt="cart-icon"/><span>Add To Cart</span></button>
+                            <button onClick={handleAddBookToShoppingCart}><img src={CartIcon} alt="cart-icon"/><span>Add To Cart</span></button>
                         </div>
                         <div className="payment-info-container">
                             <p>We accept</p>

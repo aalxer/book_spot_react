@@ -1,0 +1,1 @@
+export type CustomerBooksState =  "fetching" | "success" | "empty" | "error";

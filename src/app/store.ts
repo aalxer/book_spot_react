@@ -11,4 +11,4 @@ export const store = configureStore({
 
 type RootState = ReturnType<typeof store.getState>;
 export const selectUserFromState = (state: RootState) => state.login.user;
-export const selectProduktsFromState = (state: RootState) => state.shoppingCart.shoppingCart;
+export const selectProduktsFromState = (state: RootState) => state.shoppingCart;

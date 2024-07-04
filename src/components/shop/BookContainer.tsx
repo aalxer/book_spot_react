@@ -4,8 +4,10 @@ import LikeCounter from './LikeCounterContainer'
 import '../../styles/BookContainer.css'
 import {Book} from "../../types/Book";
 import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectUserFromState} from "../../app/store";
+import {addItemsToShoppingCart} from "../../features/shoppingCart/ShoppingCartSlice"
+import {useGetbook} from "../../hooks/useGetbook";
 
 const defaultAuthor: string = "unknown";
 const defaultPrice: string = "NaN";
@@ -23,6 +25,12 @@ export default function BookContainer({
                                       }: Book) {
 
     const user = useSelector(selectUserFromState);
+    const dispatch = useDispatch();
+    const {state, book} = useGetbook(id);
+
+    function handleAddBookToShoppingCart() {
+        dispatch(addItemsToShoppingCart(book));
+    }
 
     return <div className="book-display-content-container">
         <div className="book-display-cover-cintainer">
@@ -35,7 +43,7 @@ export default function BookContainer({
             <p>isbn: {isbn}</p>
             <div className="book-preis-container">
                 <p>{price}</p>
-                {user ? <img src={CartIcon} alt="shopping-cart-icon"/> : ""}
+                {user ? <img onClick={handleAddBookToShoppingCart} src={CartIcon} alt="shopping-cart-icon"/> : ""}
             </div>
         </div>
     </div>

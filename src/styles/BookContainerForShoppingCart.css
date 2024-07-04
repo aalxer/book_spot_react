@@ -20,7 +20,7 @@
 
 .book-display-info-container-shoppingCart {
     max-width: 100%;
-    padding: 10px 50px 50px 50px;
+    padding: 0 50px 0 50px;
     text-align: left;
 }
 
@@ -47,9 +47,22 @@
     white-space: nowrap;
 }
 
+.book-preis-container-title-shoppingCart {
+    width: 100%;
+    margin: 15px 0 0 0;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.book-preis-container-title-shoppingCart p {
+    font-weight: 200;
+    font-size: .9rem;
+}
+
 .book-preis-container-shoppingCart {
     width: 100%;
-    margin: 20px 0 0 0;
     display: flex;
     height: fit-content;
     align-items: center;
@@ -61,10 +74,12 @@
     font-weight: 500;
 }
 
-.book-preis-container-shoppingCart img {
-    text-align: right;
+.book-remove-icon-container {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
 }
 
-.book-preis-container-shoppingCart img:hover {
+.book-remove-icon-container img:hover {
     cursor: pointer;
 }

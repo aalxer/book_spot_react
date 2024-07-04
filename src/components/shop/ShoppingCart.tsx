@@ -4,6 +4,7 @@ import BookContainerForShoppingCart from "./BookContainerForShoppingCart";
 import EmptyBox from "../../assets/icons/empty-box-gray.png"
 import LoadingContainer from "../shared/LoadingContainer";
 import {useCustomerBooks} from "../../hooks/useCustomerBooks";
+import {useEffect} from "react";
 
 export default function ShoppingCart() {
 
@@ -12,14 +13,13 @@ export default function ShoppingCart() {
     function getShoppingCartContent() {
         return <>
             <div className="booksContainer">
-                {customerBooks.map((book) => (
-                    <BookContainerForShoppingCart id={book.id} title={book.title} isbn={book.isbn} price={book.price}
-                                                  cover={book.cover}/>
+                {customerBooks.map((item) => (
+                    <BookContainerForShoppingCart key={item.book.id} book={item.book} count={item.count}/>
                 ))}
             </div>
             <div className="infoContainer">
                 <p>Items <span className="infoValue">{itemsNumber}</span></p>
-                <p>Total <span className="infoValue">{totalPrice}$</span></p>
+                <p>Total <span className="infoValue">{totalPrice.toFixed(2)}$</span></p>
                 <button className="checkoutBtn">Checkout</button>
             </div>
         </>
