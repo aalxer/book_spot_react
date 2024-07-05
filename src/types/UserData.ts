@@ -1,6 +1,5 @@
 import {ShoppingCartState} from "./ShoppingCartState";
 
-
 export interface UserData {
     username: string,
     accessToken: string,

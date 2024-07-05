@@ -24,7 +24,8 @@ export const useLogin = () => {
                     admin: true,
                     userId: responseObject.user.id,
                     nickname: responseObject.user.nickname
-                } : {                    username: responseObject.user.email,
+                } : {
+                    username: responseObject.user.email,
                     accessToken: responseObject.accessToken,
                     admin: false,
                     userId: responseObject.user.id,
@@ -32,8 +33,8 @@ export const useLogin = () => {
                     shoppingCart: responseObject.user.shoppingCart
                 };
 
-                setState("success");
                 setUser(loggedInUser);
+                setState("success");
                 setErrorMessage("");
             } else {
 
