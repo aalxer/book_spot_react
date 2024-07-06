@@ -16,15 +16,18 @@ export default function ShopMainComponent() {
     ScrollToTop();
 
     return isCustomer ?
+        // Customer
         <>
             <Header/>
             <Outlet/>
             <Footer/>
         </>
 
+        // Admin
         : isAdmin ?
             <Navigate to="/dashboard" replace/>
 
+            // Gast
             : <>
                 <Header/>
                 <Homepage/>

@@ -84,10 +84,11 @@ export default function Homepage() {
 
     function nextPage() {
 
-        const nextPage = currentPage + 1;
-        setCurrentPage(nextPage);
-        navigate(`/home/page/${nextPage}`);
-
+        if (currentPage < lastPage) {
+            const nextPage = currentPage + 1;
+            setCurrentPage(nextPage);
+            navigate(`/home/page/${nextPage}`);
+        }
     }
 
     function prevPage() {

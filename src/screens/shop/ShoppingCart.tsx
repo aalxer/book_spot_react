@@ -1,8 +1,8 @@
-import BackButton from "../shared/BackButton";
+import BackButton from "../../components/shared/BackButton";
 import "../../styles/ShoppingCart.css"
-import BookContainerForShoppingCart from "./BookContainerForShoppingCart";
+import BookContainerForShoppingCart from "../../components/shop/BookContainerForShoppingCart";
 import EmptyBox from "../../assets/icons/empty-box-gray.png"
-import LoadingContainer from "../shared/LoadingContainer";
+import LoadingContainer from "../../components/shared/LoadingContainer";
 import {useCustomerBooks} from "../../hooks/useCustomerBooks";
 import {useEffect} from "react";
 

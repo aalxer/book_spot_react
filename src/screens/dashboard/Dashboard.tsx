@@ -57,7 +57,9 @@ export default function Dashboard() {
     }
 
     function nextPage() {
-        setCurrentPage(currentPage + 1);
+        if (currentPage < lastPage) {
+            setCurrentPage(currentPage + 1);
+        }
     }
 
     function prevPage() {

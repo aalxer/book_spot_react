@@ -23,13 +23,13 @@ export default function Navbar() {
         {
             user && user.admin ?
                 <ul className="navbar-container-ul">
-                    <li>Hello ! {user?.nickname}</li>
+                    <li>Hey ! {user?.nickname}</li>
                     <li><Link to={"/dashboard"}><img src={SettingIcon} alt="mail-icon"/></Link></li>
                     <li><img onClick={handleLogout} src={LogoutIcon} alt="mail-icon"/></li>
                 </ul>
                 : user && !user.admin ?
                     <ul className="navbar-container-ul">
-                        <li>Hello ! {user?.nickname}</li>
+                        <li>Hey ! {user?.nickname}</li>
                         <li><Link to={"/home/cart"}><img src={CartIcon} alt="cart-icon"/></Link></li>
                         <li><Link to={"/home/impressum"}><img src={LikeIcon} alt="like-icon"/></Link></li>
                         <li><img onClick={handleLogout} src={LogoutIcon} alt="mail-icon"/></li>

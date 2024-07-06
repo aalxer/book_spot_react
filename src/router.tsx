@@ -11,7 +11,7 @@ import App from "./components/App";
 import LoginScreen from "./screens/LoginScreen";
 import DashboardMainComponent from "./components/DashboardMainComponent";
 import ShopMainComponent from "./components/ShopMainComponent";
-import ShoppingCart from "./components/shop/ShoppingCart";
+import ShoppingCart from "./screens/shop/ShoppingCart";
 
 export const router = createBrowserRouter([
     {
