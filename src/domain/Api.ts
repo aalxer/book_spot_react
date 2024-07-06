@@ -24,7 +24,10 @@ async function getAllBooks(): Promise<Array<Book>> {
     }
 }
 
-async function getBooksPerPage(page: number): Promise<Array<Book>> {
+async function getBooksPerPage(page: number): Promise<{
+    booksFromBackend: Book[],
+    headers: any
+    }> {
 
     try {
         let response: Response = await fetch(url + '/books?_page=' + page)
@@ -32,7 +35,19 @@ async function getBooksPerPage(page: number): Promise<Array<Book>> {
         if (response.ok) {
             console.log("response was successfully")
             console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
-            return await response.json()
+
+            // Zugriff auf die Response Header
+            const headers = response.headers;
+
+            // Rückgabe von sowohl dem JSON-Body als auch den Headern
+            const books = await response.json();
+
+            return {
+                booksFromBackend: books,
+                headers: headers
+            }
+
+            //return await response.json()
         } else {
             console.log("Response failed")
             console.log("Response Status: " + response.status + " , Response Text: " + response.statusText)
@@ -207,7 +222,7 @@ async function login(email: string, password: string) {
     }
 }
 
-async function updateUserShoppingCart(userId:number, products:ShoppingCartState[]) {
+async function updateUserShoppingCart(userId: number, products: ShoppingCartState[]) {
 
     const requestOptions = {
         method: 'PATCH',
@@ -218,7 +233,7 @@ async function updateUserShoppingCart(userId:number, products:ShoppingCartState[
     }
 
     try {
-        let response = await fetch(url + '/users/' + userId , requestOptions);
+        let response = await fetch(url + '/users/' + userId, requestOptions);
         console.log("Request was sent successfully")
         return response;
     } catch (error) {
@@ -228,4 +243,13 @@ async function updateUserShoppingCart(userId:number, products:ShoppingCartState[
     }
 }
 
-export {getAllBooks, getBooksPerPage, addBook, deleteBookById, updateBookById, getBookPerId, login, updateUserShoppingCart}
+export {
+    getAllBooks,
+    getBooksPerPage,
+    addBook,
+    deleteBookById,
+    updateBookById,
+    getBookPerId,
+    login,
+    updateUserShoppingCart
+}

@@ -1,6 +1,6 @@
 export interface nextAndPrevContext {
     currentPage: number;
-    isLastPage: boolean;
+    lastPage: number;
     numberOfPageToDisplay: number;
 
     nextFunction(): void;
@@ -8,4 +8,6 @@ export interface nextAndPrevContext {
     prevFunction(): void;
 
     goToPage(page:number):void;
+    goToFirstPage():void;
+    gotToLastPage():void;
 }

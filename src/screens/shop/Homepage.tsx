@@ -13,8 +13,7 @@ export default function Homepage() {
     const {page} = useParams();
     const initialPage = page ? parseInt(page) : 1;
     const [currentPage, setCurrentPage] = useState(initialPage);
-    //const [lastPage, setLastPage] = useState(false);
-    const {books, state, error, refresh} = useBooks(currentPage);
+    const {books, state, lastPage, error, refresh} = useBooks(currentPage);
     const navigate = useNavigate();
 
     // Refresh jeder Minute (useEffect in default: sie wird nur beim ersten rendern aufgerufen):
@@ -42,8 +41,9 @@ export default function Homepage() {
             {displayRefreshAndFilterIcons()}
             {generateBooksContainers()}
             <div className="nextAndPrevPageContainer">
-                <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={5}
-                                          nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}/>
+                <NextAndPrevPageContainer currentPage={currentPage} lastPage={lastPage} numberOfPageToDisplay={5}
+                                          nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}
+                                          goToFirstPage={goToFirstPage} gotToLastPage={goToLastPage}/>
             </div>
         </div>
     }
@@ -98,8 +98,22 @@ export default function Homepage() {
             navigate(`/home/page/${prevPage}`);
         }
     }
-    
-    function goToPage(pageNumber:number) {
+
+    function goToLastPage() {
+        if (currentPage < lastPage) {
+            setCurrentPage(lastPage);
+            navigate(`/home/page/${lastPage}`);
+        }
+    }
+
+    function goToFirstPage() {
+        if (currentPage > 1) {
+            setCurrentPage(1);
+            navigate(`/home/page/${1}`);
+        }
+    }
+
+    function goToPage(pageNumber: number) {
         setCurrentPage(pageNumber);
         navigate(`/home/page/${pageNumber}`);
     }

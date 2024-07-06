@@ -14,7 +14,7 @@ import {useState} from "react";
 export default function Dashboard() {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const {books, state, refresh} = useBooks(currentPage);
+    const {books, state, lastPage, refresh} = useBooks(currentPage);
     const {deleteState, deleteBook} = useDelete();
 
     function displayItems() {
@@ -66,10 +66,22 @@ export default function Dashboard() {
         }
     }
 
-    function goToPage(pageNumber:number) {
+    function goToLastPage() {
+        if (currentPage < lastPage) {
+            setCurrentPage(lastPage);
+        }
+    }
+
+    function goToFirstPage() {
+        if (currentPage > 1) {
+            setCurrentPage(1);
+        }
+    }
+
+    function goToPage(pageNumber: number) {
         setCurrentPage(pageNumber);
     }
-    
+
     return (
         state === "success" ?
             <div className="dashboardContentContainer">
@@ -77,8 +89,9 @@ export default function Dashboard() {
                 {generateTableTitle()}
                 {displayItems()}
                 <div className="nextPrevContainer">
-                    <NextAndPrevPageContainer currentPage={currentPage} isLastPage={false} numberOfPageToDisplay={10}
-                                              nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}/>
+                    <NextAndPrevPageContainer currentPage={currentPage} lastPage={lastPage} numberOfPageToDisplay={10}
+                                              nextFunction={nextPage} prevFunction={prevPage} goToPage={goToPage}
+                                              goToFirstPage={goToFirstPage} gotToLastPage={goToLastPage}/>
                 </div>
             </div>
             : <LoadingContainer/>
