@@ -13,8 +13,13 @@ export const store = configureStore({
 store.subscribe(() => {
     if (store.getState().login.user != null && !store.getState().login.user!.admin) {
         console.log("updating user products in DB .. ");
-        updateUserShoppingCart(store.getState().login.user!.userId, store.getState().shoppingCart);
-        // TODO Error handling
+        updateUserShoppingCart(store.getState().login.user!.userId, store.getState().shoppingCart).then(() => {
+                console.log("user products in DB updated ");
+            }
+        ).catch((error) => {
+            // TODO Error handling, Fehler Meldung soll angezeigt werden
+            console.log("Error while updating user products !", error);
+        });
     }
 })
 

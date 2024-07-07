@@ -10,6 +10,8 @@ import {useNavigate} from "react-router-dom";
 import {loginSuccess} from "../features/login/loginSlice";
 import {useDispatch} from "react-redux";
 import {updateShoppingCartInitialState} from "../features/shoppingCart/ShoppingCartSlice";
+import Header from "../components/shared/header/Header";
+import Footer from "../components/shared/Footer";
 
 export default function LoginScreen() {
 
@@ -87,8 +89,17 @@ export default function LoginScreen() {
         navigate("/");
     }
 
-    return <div className="loginMainContainer">
-        <BackButton/>
-        {getLoginForm()}
-    </div>
+    function getLoginScreenContent() {
+        return <div className="loginMainContainer">
+            <BackButton/>
+            {getLoginForm()}
+        </div>
+    }
+
+    // TODO header un footer können nach der Endabgabe gelöscht werden (war eine Anforderung)
+    return <>
+        <Header/>
+        {getLoginScreenContent()}
+        <Footer/>
+    </>
 }

@@ -23,8 +23,8 @@ export default function Footer() {
                 <div className="right-content-links-container">
                     <p>useful links</p>
                     <ul>
-                        <li><NavLink to={"/impressum"}>impressum</NavLink></li>
-                        <li><NavLink to={"/impressum"}>privacy policy</NavLink></li>
+                        <li><NavLink to={"/home/impressum"}>impressum</NavLink></li>
+                        <li><NavLink to={"/home/impressum"}>privacy policy</NavLink></li>
                         <li>contact us</li>
                         <li>order book</li>
                         <li>your cart</li>
