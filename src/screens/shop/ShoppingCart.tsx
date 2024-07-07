@@ -5,10 +5,12 @@ import EmptyBox from "../../assets/icons/empty-box-gray.png"
 import LoadingContainer from "../../components/shared/LoadingContainer";
 import {useCustomerBooks} from "../../hooks/useCustomerBooks";
 import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function ShoppingCart() {
 
     const {state, customerBooks, itemsNumber, totalPrice} = useCustomerBooks();
+    const navigate = useNavigate();
 
     function getShoppingCartContent() {
         return <>
@@ -20,7 +22,7 @@ export default function ShoppingCart() {
             <div className="infoContainer">
                 <p>Items <span className="infoValue">{itemsNumber}</span></p>
                 <p>Total <span className="infoValue">{totalPrice.toFixed(2)}$</span></p>
-                <button className="checkoutBtn">Checkout</button>
+                <button onClick={() => navigate("/home/checkout")} className="checkoutBtn">Checkout</button>
             </div>
         </>
     }

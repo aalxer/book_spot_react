@@ -12,6 +12,7 @@ import LoginScreen from "./screens/LoginScreen";
 import DashboardMainComponent from "./components/DashboardMainComponent";
 import ShopMainComponent from "./components/ShopMainComponent";
 import ShoppingCart from "./screens/shop/ShoppingCart";
+import Checkout from "./screens/shop/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
                         path: "/home/impressum",
                         element: <Impressum/>
                     },
+                    {
+                        path: "/home/checkout",
+                        element: <Checkout/>
+                    }
                 ]
             },
             {

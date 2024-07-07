@@ -32,8 +32,11 @@ export default function Navbar() {
                 : user && !user.admin ?
                     <ul className="navbar-container-ul">
                         <li>Hey ! {user?.nickname}</li>
-                        <li><Link to={"/home/cart"}><img src={CartIcon} alt="cart-icon"/><span
-                            className="itemsCounter">{itemsNumber}</span></Link></li>
+                        <li>
+                            <Link to={"/home/cart"}><img src={CartIcon} alt="cart-icon"/>
+                                {itemsNumber > 0 ? <span className="itemsCounter">{itemsNumber}</span> : ""}
+                            </Link>
+                        </li>
                         <li><Link to={"/home/impressum"}><img src={LikeIcon} alt="like-icon"/></Link></li>
                         <li><img onClick={handleLogout} src={LogoutIcon} alt="mail-icon"/></li>
                     </ul>
