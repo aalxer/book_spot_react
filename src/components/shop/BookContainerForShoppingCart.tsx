@@ -21,11 +21,11 @@ export default function BookContainerForShoppingCart({
 
     return <div className="book-display-content-container-shoppingCart">
         <div className="book-display-cover-cintainer-shoppingCart">
-            <img src={book.cover} alt="book-cover" className="book-cover-shoppingCart"/>
+            <img src={book.cover && book.cover.length > 0 ? book.cover : DefaultCover} alt="book-cover" className="book-cover-shoppingCart"/>
         </div>
         <div className="book-display-info-container-shoppingCart">
             <NavLink to={`/home/${book.id}`}><h4>{book.title}</h4></NavLink>
-            <p>{book.isbn}</p>
+            <p>by {book.author}</p>
             <div className="book-preis-container-title-shoppingCart">
                 <p>Price</p>
                 <p>Pieces</p>

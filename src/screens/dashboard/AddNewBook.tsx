@@ -102,7 +102,7 @@ export default function AddNewBook() {
                 isbn: isbn,
                 author: author,
                 publisher: publisher,
-                price: price,
+                price: price.length > 0 ? price : "$0.00",
                 numPages: parseInt(pages),
                 abstract: abstract,
                 id: parseInt(isbn),

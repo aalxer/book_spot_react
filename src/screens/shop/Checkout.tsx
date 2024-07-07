@@ -25,7 +25,8 @@ export default function Checkout() {
             email: user!.username,
             address: "Test Str. 10, 2024 Berlin",
             items: itemsNumber,
-            amount: shoppingCart.reduce((total, item) => total + Number.parseFloat(item.book.price!.slice(1)), 0.0)
+            amount: shoppingCart.reduce((total, item) => total + Number.parseFloat(item.book.price!.slice(1)), 0.0),
+            books: shoppingCart
         });
         doOrder();
     }, [])
@@ -47,11 +48,22 @@ export default function Checkout() {
                 <p>Thank you for your Order !</p>
             </div>
             <div className="order-details-container">
-                <p>Customer Name {orderDetails.name}</p>
-                <p>Email Address {orderDetails.email}</p>
-                <p>Customer Address {orderDetails.address}</p>
-                <p>Order Items {orderDetails.items}</p>
-                <p>Total Price {orderDetails.amount}$</p>
+                <p>Order Number: 86282779</p>
+                <p>Customer Name: {orderDetails.name}</p>
+                <div className="ordered-items-table-container">
+                    <p className="table-header">Item</p>
+                    <p className="table-header">Price</p>
+                    <p className="table-header">Number</p>
+                    {orderDetails.books?.map((item) => {
+                        console.log(item.book)
+                        return <>
+                            <p className="table-content">{item.book.title}</p>
+                            <p className="table-content">{item.book.price}</p>
+                            <p className="table-content">{item.count}</p>
+                        </>
+                    })}
+                </div>
+                <p>Total Price: {orderDetails.amount}$</p>
             </div>
             <button onClick={() => navigate("/home")} className="back-home-btn"><img src={PrevIcon}/>To Homepage</button>
         </div>
