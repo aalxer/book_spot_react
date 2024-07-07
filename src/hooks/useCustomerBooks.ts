@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import {CustomerBooksState} from "../types/CustomerBooksState";
 import {useSelector} from "react-redux";
-import {selectProduktsFromState} from "../app/store";
+import {selectItemsNumberFromState, selectProduktsFromState} from "../app/store";
 
 export const useCustomerBooks = () => {
 
     const [state, setState] = useState<CustomerBooksState>("fetching");
     let customerBooks = useSelector(selectProduktsFromState);
-    const [itemsNumber, setItemsNumber] = useState(0);
+    let itemsNumber = useSelector(selectItemsNumberFromState);
     const [totalPrice, setTotalPrice] = useState(0.0);
 
     useEffect(() => {
@@ -18,8 +18,6 @@ export const useCustomerBooks = () => {
 
     function getBooks() {
         if (customerBooks && customerBooks.length) {
-            const totalItemsNumber = customerBooks.reduce((total, item) => total + item.count, 0);
-            setItemsNumber(totalItemsNumber);
             const totalPrice = customerBooks.reduce((total, item) => total + Number.parseFloat(item.book.price!.slice(1)), 0.0);
             setTotalPrice(totalPrice);
             setState("success");

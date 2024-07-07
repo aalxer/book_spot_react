@@ -21,3 +21,4 @@ store.subscribe(() => {
 type RootState = ReturnType<typeof store.getState>;
 export const selectUserFromState = (state: RootState) => state.login.user;
 export const selectProduktsFromState = (state: RootState) => state.shoppingCart;
+export const selectItemsNumberFromState = (state: RootState) => state.shoppingCart.reduce((total, item) => total + item.count, 0);

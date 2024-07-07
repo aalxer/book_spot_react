@@ -29,6 +29,7 @@
 }
 
 .navbar-container-ul li {
+    position: relative;
     margin-right: 5px;
     font-size: 1.08rem;
     font-weight: 500;
@@ -60,4 +61,15 @@
 
 .navbar-container-ul li:hover {
     cursor: pointer;
+}
+
+.itemsCounter {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #45cc00;
+    color: #fefefe;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: .8rem;
 }

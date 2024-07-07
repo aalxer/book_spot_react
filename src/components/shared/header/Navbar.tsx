@@ -4,7 +4,7 @@ import SettingIcon from '../../../assets/icons/setting-icon-gray.png'
 import LogoutIcon from '../../../assets/icons/logout-icon-gray.png'
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {selectUserFromState} from "../../../app/store";
+import {selectItemsNumberFromState, selectUserFromState} from "../../../app/store";
 import LoginIcon from "../../../assets/icons/login-icon-gray.png"
 import {useLogout} from "../../../hooks/useLogoutThrowRedux";
 
@@ -13,6 +13,8 @@ export default function Navbar() {
     const user = useSelector(selectUserFromState);
     const {state, logoutThrowRedux} = useLogout();
     const navigate = useNavigate();
+    let itemsNumber = useSelector(selectItemsNumberFromState);
+
 
     function handleLogout() {
         logoutThrowRedux();
@@ -30,7 +32,8 @@ export default function Navbar() {
                 : user && !user.admin ?
                     <ul className="navbar-container-ul">
                         <li>Hey ! {user?.nickname}</li>
-                        <li><Link to={"/home/cart"}><img src={CartIcon} alt="cart-icon"/></Link></li>
+                        <li><Link to={"/home/cart"}><img src={CartIcon} alt="cart-icon"/><span
+                            className="itemsCounter">{itemsNumber}</span></Link></li>
                         <li><Link to={"/home/impressum"}><img src={LikeIcon} alt="like-icon"/></Link></li>
                         <li><img onClick={handleLogout} src={LogoutIcon} alt="mail-icon"/></li>
                     </ul>
